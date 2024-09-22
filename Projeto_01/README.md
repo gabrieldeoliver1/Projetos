@@ -27,10 +27,6 @@ Como Executar o Projeto Clone o repositório:
 ```bash
   Copiar cd Projeto_01 Abra o notebook:
 ```
-```bash
-  Copiar jupyter notebook 1.musica_na_cidade.ipynb
-```
-
 
 
 
