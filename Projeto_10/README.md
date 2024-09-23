@@ -1,5 +1,5 @@
 
-# Projeto 10: Prototipagem de um Modelo de Aprendizado de Máquina para o Zyfra
+Prototipagem de um Modelo de Aprendizado de Máquina para o Zyfra
 
 ## Descrição do Projeto
 Este projeto visa desenvolver um protótipo de modelo de aprendizado de máquina para prever comportamentos específicos de clientes, utilizando dados históricos. O foco é entender e aplicar técnicas de machine learning para gerar insights valiosos.
