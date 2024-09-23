@@ -12,16 +12,18 @@ Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade p
 
 Tecnologias Utilizadas:
 
-Python
-Jupyter Notebook
-Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+- Python
+- Jupyter Notebook
+- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
 
 Funcionalidades:
 
-Análise de dados sobre vendas de carros
-Visualizações interativas
-Insights sobre fatores que influenciam a decisão de compra
-
+- Análise de dados sobre vendas de carros
+- Visualizações interativas
+- Insights sobre fatores que influenciam a decisão de compra
+- Testagem de Hipóteses
+- Significância Estatística
+- Análise de Variância (ANOVA)
 
 ## Clone
 
