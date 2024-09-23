@@ -53,7 +53,6 @@ Implementação de diversos algoritmos de machine learning, como:
 - Regressão Logística
 - Árvores de Decisão
 - Random Forest
-- Gradient Boosting
 - Avaliação do desempenho dos modelos utilizando métricas como acurácia, precisão, recall e F1-score.
 
 
