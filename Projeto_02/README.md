@@ -12,14 +12,15 @@ Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade p
 
 Tecnologias Utilizadas:
 
-Python
-Jupyter Notebook
-Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+- Python
+- Jupyter Notebook
+- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+
 Funcionalidades:
 
-Análise de dados de inadimplência
-Visualizações interativas
-Insights sobre fatores de risco associados a mutuários
+- Análise de dados de inadimplência
+- Visualizações interativas
+- Insights sobre fatores de risco associados a mutuários
 
 
 ## Clone
