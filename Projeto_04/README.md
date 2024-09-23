@@ -10,16 +10,18 @@ Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade p
 
 ## 🛠 Skills
 
-Python
-Jupyter Notebook
-Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+- Python
+- Jupyter Notebook
+- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
 
 Funcionalidades:
 
-Análise de dados de receita
-Visualizações interativas
-Insights sobre os fatores que influenciam a receita dos planos
-
+- Análise de dados de receita
+- Visualizações interativas
+- Insights sobre os fatores que influenciam a receita dos planos
+- Testagem de Hipóteses
+- Significância Estatística
+- Análise de Variância (ANOVA)
 
 ## Clone
 
