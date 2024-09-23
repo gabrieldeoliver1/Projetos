@@ -12,24 +12,24 @@ Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade p
 
 Tecnologias Utilizadas:
 
-Python
-Jupyter Notebook
-Bibliotecas:
-Pandas
-Matplotlib
-Seaborn
-NumPy
-Scikit-learn (para modelos de machine learning)
+- Python
+- Jupyter Notebook
+- Bibliotecas:
+- Pandas
+- Matplotlib
+- Seaborn
+- NumPy
+- Scikit-learn (para modelos de machine learning)
 
 Funcionalidades
 
-Análise comparativa dos planos Smart e Ultra
-Visualizações interativas para melhor compreensão dos dados
-Implementação de modelos de machine learning:
-Regressão Linear
-Árvores de Decisão
-Random Forest
-Recomendações baseadas em análise de dados e predições dos modelos
+- Análise comparativa dos planos Smart e Ultra
+- Visualizações interativas para melhor compreensão dos dados
+- Implementação de modelos de machine learning:
+- Regressão Linear
+- Árvores de Decisão
+- Random Forest
+- Recomendações baseadas em análise de dados e predições dos modelos
 
 ## Clone
 
