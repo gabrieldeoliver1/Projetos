@@ -156,3 +156,33 @@ Cada projeto possui seu próprio diretório com instruções detalhadas sobre co
 
 ```bash
 git clone https://github.com/gabrieldeoliver1/Projetos.git
+```
+
+Dependências
+A maioria dos projetos utiliza as seguintes bibliotecas:
+
+- Python 3.x
+- Pandas
+- NumPy
+- Scikit-learn
+- TensorFlow
+- Keras
+- Matplotlib
+- Seaborn
+
+
+Executar um Projeto
+Entre no diretório do projeto desejado e siga as instruções para instalação de dependências e execução dos scripts:
+
+```bash
+cd Nome_do_Projeto
+```
+
+
+
+
+## 🔗 Contato
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
+
+Email: gabrieldeoliver1@gmail.com
