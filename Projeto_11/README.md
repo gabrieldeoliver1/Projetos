@@ -55,7 +55,7 @@ Como Executar o Projeto Clone o repositório:
 ```
 
 ```bash
-  Copiar cd Projeto_10 Abra o notebook:
+  Copiar cd Projeto_11 Abra o notebook:
 ```
 
 
