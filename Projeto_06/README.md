@@ -13,15 +13,15 @@ Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade p
 
 Tecnologias Utilizadas:
 
-Python
-Jupyter Notebook
-Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+- Python
+- Jupyter Notebook
+- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
 
 Funcionalidades:
 
-Análise de dados sobre preferências dos passageiros
-Visualizações interativas
-Insights sobre o impacto de fatores externos nas corridas
+- Análise de dados sobre preferências dos passageiros
+- Visualizações interativas
+- Insights sobre o impacto de fatores externos nas corridas
 
 
 ## Clone
