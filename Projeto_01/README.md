@@ -9,7 +9,16 @@ Contribuições Sinta-se à vontade para contribuir com melhorias ou sugestões.
 
 ## 🛠 Skills
 
-Tecnologias Utilizadas Python Jupyter Notebook Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy. Funcionalidades Análise de dados musicais Visualizações interativas Insights sobre tendências musicais em ambientes urbanos.
+Tecnologias Utilizadas 
+- Python
+- Jupyter
+- Notebook
+- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy.
+
+Funcionalidades: 
+- Análise de dados musicais 
+- Visualizações interativas 
+- Insights sobre tendências musicais em ambientes urbanos.
 
 
 ## Clone
