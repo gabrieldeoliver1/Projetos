@@ -150,6 +150,15 @@ Este repositório contém uma coleção dos projetos de aprendizado de máquina 
 
 ---
 
+### 16. [**Desenvolvendo um Modelo para Predizer a Rotatividade de Clientes**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16)
+- **Descrição**: Este projeto desenvolve um modelo preditivo de machine learning para a operadora de comunicações Interconnect, com o objetivo de prever a rotatividade de clientes. Utiliza dados de contratos e informações pessoais para identificar usuários propensos a trocar de operadora.
+- **Tecnologias**: Python, Pandas, NumPy, Matplotlib, Scikit-learn.
+- **Destaques**:
+  - Implementação de um pipeline com regressão logística para classificação.
+  - Uso de validação cruzada e métricas de desempenho, com foco na pontuação AUROC.
+  - O modelo alcançou uma pontuação AUROC de 0.82, demonstrando boa capacidade de discriminação entre clientes rotativos e não rotativos. 
+---
+
 ## Como Executar os Projetos
 
 Cada projeto possui seu próprio diretório com instruções detalhadas sobre como instalar dependências e executar os notebooks ou scripts. Para executar qualquer um dos projetos, clone o repositório e siga as instruções no respectivo README de cada projeto:
