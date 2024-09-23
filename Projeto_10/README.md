@@ -18,29 +18,27 @@ Este projeto visa desenvolver um protótipo de modelo de aprendizado de máquina
 
 ## Funcionalidades Implementadas
 
-1. **Carregamento de Dados**:
-   - Importação de datasets relevantes para o problema em questão.
+1. **Coleta de Dados**:
+   - Dados relevantes foram coletados e organizados para análise.
 
 2. **Limpeza e Pré-processamento**:
-   - Tratamento de valores ausentes e inconsistências nos dados.
+   - Tratamento de valores ausentes e inconsistências nos dados, incluindo normalização e transformação de variáveis.
 
 3. **Análise Exploratória de Dados (EDA)**:
-   - Visualizações para entender melhor as distribuições e correlações entre variáveis.
+   - Realização de visualizações para entender as distribuições e correlações entre variáveis, utilizando gráficos de dispersão e histogramas.
 
-4. **Modelagem Preditiva**:
-   - Implementação de diversos algoritmos de aprendizado de máquina, incluindo:
-     - Regressão Logística
-     - Árvores de Decisão
-     - Random Forest
+4. **Divisão dos Dados**:
+   - Os dados foram divididos em conjuntos de treinamento e teste para garantir uma avaliação justa do modelo.
 
-5. **Avaliação do Modelo**:
-   - Uso de métricas como acurácia, precisão, recall e F1-score para avaliar o desempenho do modelo.
+5. **Modelagem Preditiva**:
+   - Implementação de um modelo de **Regressão Logística** para prever a probabilidade de eventos relacionados aos clientes.
+   - Avaliação do modelo utilizando a métrica **SMAPE (Symmetric Mean Absolute Percentage Error)**, que fornece uma interpretação percentual do erro nas previsões.
 
-6. **Validação Cruzada**:
-   - Aplicação de técnicas de validação cruzada para garantir a robustez do modelo.
+6. **Validação do Modelo**:
+   - Aplicação de validação cruzada para garantir a robustez e a generalização do modelo.
 
 7. **Geração de Relatórios**:
-   - Criação de relatórios que sintetizam os insights obtidos e as recomendações.
+   - Criação de relatórios que sintetizam os insights obtidos e as recomendações para a Zyfra.
 
 ## Clone
 
@@ -51,7 +49,7 @@ Como Executar o Projeto Clone o repositório:
 ```
 
 ```bash
-  Copiar cd Projeto_08 Abra o notebook:
+  Copiar cd Projeto_10 Abra o notebook:
 ```
 
 
