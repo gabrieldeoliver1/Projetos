@@ -1,6 +1,6 @@
 # Portfólio de Ciência de Dados e Machine Learning
 
-Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior, desenvolvidos durante a formação em Ciência de Dados na TripleTen. Os 16 projetos cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio.
+Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior, desenvolvidos durante a formação em Ciência de Dados na TripleTen. Os 17 projetos cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio.
 
 Cada projeto tem um README próprio com o problema, os dados, a abordagem e os resultados.
 
@@ -8,6 +8,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 
 | Projeto | Problema de negócio | Técnicas | Resultado |
 |---|---|---|---|
+| [Previsão de Vendas de Material de Construção](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_17) | Prever as vendas do varejo de material de construção para planejar compras e estoque | Séries temporais, SARIMA, validação por origem móvel | MAPE de 3,37%, 25% melhor que a linha de base |
 | [Previsão de Churn de Clientes](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16) | Identificar clientes de telecom com risco de cancelar | Pipeline, Regressão Logística, validação cruzada | AUC-ROC de 0,82 |
 | [Previsão de Demanda de Táxis](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_13) | Prever pedidos da próxima hora para alocar motoristas | Séries temporais, engenharia de features | RMSE de 47,99 (meta ≤ 48) |
 | [Detecção de Resenhas Negativas](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_14) | Filtrar automaticamente resenhas negativas | NLP, TF-IDF, Regressão Logística | 88% de acurácia e ROC AUC de 0,95 |
