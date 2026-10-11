@@ -1,6 +1,6 @@
 # Previsão de Saída de Clientes de um Banco
 
-> **Resultado:** **F1 de 0,60** no conjunto de teste, acima da meta de 0,59, com **AUC-ROC de 0,85**, usando Random Forest com upsampling da classe minoritária e ajuste do limiar de decisão.
+> **Resultado:** **F1 de 0,60** no conjunto de teste, acima da meta de 0,59, com **AUC-ROC de 0,85**, usando Random Forest com upsampling da classe minoritária.
 
 ## Problema de negócio
 
@@ -24,12 +24,12 @@ Os clientes do Beta Bank estão saindo aos poucos, todo mês. Como é mais barat
 
 | Técnica (validação) | F1 | Recall | Precisão | AUC-ROC |
 |---|---|---|---|---|
-| Sem balanceamento | 0,55 | 0,42 | 0,81 | 0,85 |
-| Pesos de classe | 0,60 | 0,54 | 0,68 | 0,86 |
-| **Upsampling** | **0,60** | **0,64** | **0,57** | **0,85** |
-| Downsampling | 0,59 | 0,76 | 0,49 | 0,86 |
+| Sem balanceamento | 0,56 | 0,43 | 0,78 | 0,85 |
+| Pesos de classe | 0,60 | 0,54 | 0,67 | 0,85 |
+| **Upsampling** | **0,62** | **0,63** | **0,60** | **0,86** |
+| Downsampling | 0,59 | 0,75 | 0,48 | 0,86 |
 
-Com o upsampling e o limiar de decisão ajustado para 0,55, o modelo final alcançou no **teste**: **F1 de 0,60 (meta de 0,59)**, AUC-ROC de 0,85 e acurácia de 84%.
+Com o upsampling (o limiar padrão de 0,5 foi o melhor na validação), o modelo final alcançou no **teste**: **F1 de 0,60 (meta de 0,59)**, AUC-ROC de 0,85 e acurácia de 83%.
 
 ## Correções desta versão
 
