@@ -1,6 +1,6 @@
 # Previsão de Churn de Clientes – Interconnect
 
-> **Resultado:** **AUC-ROC de 0,82** no conjunto de teste (0,83 na validação cruzada), com um pipeline completo de pré-processamento e Regressão Logística.
+> **Resultado:** **AUC-ROC de 0,83** no conjunto de teste e na validação cruzada, com um pipeline completo de pré-processamento e Regressão Logística.
 
 ## Problema de negócio
 
@@ -10,7 +10,7 @@ A operadora de telecomunicações Interconnect quer prever quais clientes estão
 
 - 7.043 clientes
 - Quatro tabelas unidas pelo `customerID`: contratos, serviços de internet, dados pessoais e serviços de telefonia
-- Variável-alvo derivada da data de encerramento do contrato: no notebook, o valor 1 indica clientes que permaneceram, e a probabilidade de churn é obtida como `1 - p` (o AUC-ROC não muda com essa convenção)
+- Variável-alvo derivada da data de encerramento do contrato: 1 para o cliente que cancelou e 0 para quem permanece
 
 ## Abordagem
 
@@ -24,13 +24,16 @@ A operadora de telecomunicações Interconnect quer prever quais clientes estão
 | Avaliação | AUC-ROC |
 |---|---|
 | Validação cruzada (5 folds) | 0,83 |
-| **Conjunto de teste** | **0,82** |
+| **Conjunto de teste** | **0,83** |
 
 Os resultados próximos entre validação cruzada e teste indicam que o modelo generaliza bem para clientes novos. Como a solução está encapsulada em um único pipeline, ela pode ser aplicada diretamente a novos dados.
 
+## Correção desta versão
+
+Na versão anterior, o alvo recebia 1 para os clientes que **permaneciam**. Agora o valor 1 indica quem **cancelou**, seguindo a convenção de problemas de churn, e o modelo estima diretamente a probabilidade de cancelamento, que é a que o marketing usa. O notebook foi executado novamente com essa correção.
+
 ## Próximos passos
 
-- Redefinir o alvo como 1 para clientes que cancelaram, seguindo a convenção usual de problemas de churn
 - Testar modelos de boosting (LightGBM, CatBoost) e comparar com a Regressão Logística
 - Criar uma feature de tempo de contrato a partir da data de início e de uma data de referência, sem usar informação do encerramento
 - Definir um limiar de decisão com base no custo das ações de retenção
@@ -48,7 +51,7 @@ pip install pandas numpy scikit-learn matplotlib jupyter
 jupyter notebook
 ```
 
-Os conjuntos de dados foram fornecidos pela TripleTen durante o bootcamp e não estão incluídos no repositório. O relatório da solução está no notebook `modelo_para_predizer_a_rotatividade_relatorio_solucao.ipynb`.
+Os conjuntos de dados foram fornecidos pela TripleTen durante o bootcamp e não estão incluídos no repositório. Para reproduzir o projeto, coloque a pasta `final_provider` na mesma pasta dos notebooks. O relatório da solução está no notebook `modelo_para_predizer_a_rotatividade_relatorio_solucao.ipynb`.
 
 ## 🔗 Contato
 
