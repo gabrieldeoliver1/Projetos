@@ -1,6 +1,6 @@
 # Previsão de Saída de Clientes de um Banco
 
-> **Resultado:** F1 de **0,56** para a classe de clientes que saem e **AUC-ROC de 0,86** na validação, com Random Forest e técnicas de balanceamento de classes. A meta do projeto era F1 de 0,59.
+> **Resultado:** **F1 de 0,60** no conjunto de teste, acima da meta de 0,59, com **AUC-ROC de 0,85**, usando Random Forest com upsampling da classe minoritária e ajuste do limiar de decisão.
 
 ## Problema de negócio
 
@@ -13,28 +13,32 @@ Os clientes do Beta Bank estão saindo aos poucos, todo mês. Como é mais barat
 
 ## Abordagem
 
-1. **Pré-processamento:** tratamento de valores ausentes, remoção de identificadores e codificação de variáveis categóricas (país e gênero) com one-hot encoding.
+1. **Pré-processamento:** tratamento de valores ausentes, remoção de identificadores e codificação de país e gênero com one-hot encoding.
 2. **Divisão dos dados:** 60% treino, 20% validação e 20% teste, com estratificação.
-3. **Modelo sem balanceamento:** ajuste da profundidade da árvore e do número de árvores do Random Forest.
-4. **Correção do desbalanceamento:** comparação entre upsampling e downsampling da classe minoritária, combinados com pesos de classe.
-5. **Avaliação final:** F1, acurácia e AUC-ROC.
+3. **Escolha do modelo pelo F1 na validação:** árvore de decisão e floresta aleatória com diferentes profundidades e números de árvores.
+4. **Correção do desbalanceamento:** comparação entre pesos de classe, upsampling e downsampling, aplicados só no treino e avaliados na validação original.
+5. **Ajuste do limiar de decisão** na validação.
+6. **Avaliação final no teste**, usado uma única vez.
 
 ## Resultados
 
-| Avaliação | Resultado |
-|---|---|
-| F1 sem balanceamento (validação) | 0,53 |
-| AUC-ROC (validação) | 0,86 |
-| **F1 no teste (classe de clientes que saem)** | **0,56** |
-| Acurácia no teste | 81,5% |
+| Técnica (validação) | F1 | Recall | Precisão | AUC-ROC |
+|---|---|---|---|---|
+| Sem balanceamento | 0,55 | 0,42 | 0,81 | 0,85 |
+| Pesos de classe | 0,60 | 0,54 | 0,68 | 0,86 |
+| **Upsampling** | **0,60** | **0,64** | **0,57** | **0,85** |
+| Downsampling | 0,59 | 0,76 | 0,49 | 0,86 |
 
-Com o balanceamento de classes, o recall da classe de clientes que saem passou de 0,39 (validação, sem balanceamento) para 0,57 (teste), ao custo de uma pequena queda na acurácia. O F1 final ficou próximo, mas abaixo, da meta de 0,59.
+Com o upsampling e o limiar de decisão ajustado para 0,55, o modelo final alcançou no **teste**: **F1 de 0,60 (meta de 0,59)**, AUC-ROC de 0,85 e acurácia de 84%.
+
+## Correções desta versão
+
+Na versão anterior, as técnicas de balanceamento eram avaliadas nos próprios dados de treino reamostrados, o que inflava os resultados, o ajuste era feito pela acurácia e o modelo final era treinado no conjunto de validação, com apenas 2 mil clientes. O F1 no teste era de 0,56, abaixo da meta. Agora todas as escolhas são feitas pelo F1 na validação original, o modelo é treinado no conjunto de treino e o teste é usado uma única vez.
 
 ## Próximos passos
 
-- Ajustar os hiperparâmetros com base no F1, em vez da acurácia, e aumentar o número de árvores do modelo (hoje são 10)
-- Otimizar o limiar de decisão para maximizar o F1
 - Testar modelos de boosting, como LightGBM e CatBoost
+- Definir o limiar de decisão com base no custo de cada tipo de erro
 
 ## Tecnologias
 
@@ -49,7 +53,7 @@ pip install pandas numpy scikit-learn jupyter
 jupyter notebook
 ```
 
-O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`Churn.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook.
 
 ## 🔗 Contato
 
