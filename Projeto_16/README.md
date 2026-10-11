@@ -1,82 +1,56 @@
-# Desenvolvendo um Modelo para Predizer a Rotatividade
+# Previsão de Churn de Clientes – Interconnect
 
-## Descrição do Projeto
-Este projeto visa desenvolver um modelo preditivo de aprendizado de máquina para a operadora de comunicações Interconnect, com o objetivo de prever a rotatividade de clientes. O modelo utiliza dados pessoais e de contratos coletados pela equipe de marketing para identificar usuários que estão propensos a trocar de operadora. Quando um cliente é identificado como potencialmente propenso à rotatividade, a empresa pode intervir com ofertas especiais, como códigos promocionais e opções de planos personalizados.
+> **Resultado:** **AUC-ROC de 0,82** no conjunto de teste (0,83 na validação cruzada), com um pipeline completo de pré-processamento e Regressão Logística.
 
-## Tecnologias Utilizadas
-- **Python**: Linguagem principal para desenvolvimento do projeto.
-- **Pandas**: Manipulação e análise de dados.
-- **NumPy**: Operações numéricas e manipulação de arrays.
-- **Matplotlib**: Visualização de dados e gráficos.
-- **Scikit-learn**: Biblioteca para modelagem e validação de modelos de aprendizado de máquina.
+## Problema de negócio
 
-## Bibliotecas Utilizadas
-- **LogisticRegression**: Modelo de regressão logística utilizado para classificação.
-- **Pipeline**: Ferramenta para encadear transformações e o modelo em um único objeto.
-- **ColumnTransformer**: Utilizado para aplicar diferentes pré-processamentos a colunas específicas.
-- **OneHotEncoder**: Codificação de variáveis categóricas em formato binário.
-- **SimpleImputer**: Preenchimento de valores ausentes.
+A operadora de telecomunicações Interconnect quer prever quais clientes estão propensos a cancelar o contrato. Com essa previsão, a equipe de marketing pode oferecer códigos promocionais e planos especiais aos clientes certos, antes que eles saiam.
 
-## Funcionalidades Implementadas
+## Dados
 
-### Carregamento e Preparação dos Dados
-- Os dados foram carregados a partir de quatro arquivos CSV, contendo informações sobre contratos, serviços de internet, dados pessoais e informações de telefone dos clientes.
-- Os DataFrames foram unidos com base no `customerID` para criar um conjunto de dados consolidado que inclui todas as variáveis relevantes para a análise.
+- 7.043 clientes
+- Quatro tabelas unidas pelo `customerID`: contratos, serviços de internet, dados pessoais e serviços de telefonia
+- Variável-alvo derivada da data de encerramento do contrato
 
-### Exploração de Dados (EDA)
-- Realizada uma análise descritiva inicial para entender a distribuição dos dados.
-- Gráficos foram gerados para visualizar a distribuição da variável alvo (`target`), representando a rotatividade (0 = não rotativo, 1 = rotativo).
-- Identificação e tratamento de valores ausentes e outliers, com uma abordagem para garantir que todos os dados estivessem prontos para modelagem.
+## Abordagem
 
-### Pré-processamento dos Dados
-- Colunas não relevantes foram excluídas para otimizar o modelo.
-- As colunas categóricas foram convertidas em variáveis dummy usando `OneHotEncoder`.
-- Valores ausentes foram preenchidos, garantindo que não houvesse dados faltantes durante o treinamento.
+1. **Integração e análise exploratória:** união das quatro tabelas, verificação de qualidade, tratamento de valores ausentes e de inconsistências.
+2. **Prevenção de vazamento de dados:** separação entre treino (90%) e teste (10%) antes de qualquer transformação, com estratificação pela variável-alvo, e remoção das colunas de data que revelariam o resultado.
+3. **Pipeline de pré-processamento:** imputação de valores ausentes, `OneHotEncoder` nas variáveis categóricas e `StandardScaler` nas numéricas, tudo encapsulado com `ColumnTransformer` e `Pipeline`.
+4. **Modelagem e validação:** Regressão Logística avaliada com validação cruzada de 5 folds e, depois, no conjunto de teste.
 
-### Divisão dos Dados
-- O conjunto de dados foi dividido em conjuntos de treinamento (90%) e teste (10%), utilizando `train_test_split` para garantir uma amostragem estratificada da variável alvo.
+## Resultados
 
-### Modelagem
-- Um pipeline foi criado para integrar pré-processamento e modelagem, utilizando regressão logística.
-- O modelo foi avaliado utilizando validação cruzada para garantir que fosse capaz de generalizar bem para novos dados.
-- As métricas de desempenho foram avaliadas com foco na pontuação AUROC (Area Under the Receiver Operating Characteristic Curve), que fornece uma medida robusta de desempenho para problemas de classificação desbalanceada.
+| Avaliação | AUC-ROC |
+|---|---|
+| Validação cruzada (5 folds) | 0,83 |
+| **Conjunto de teste** | **0,82** |
 
-### Resultados
-- O modelo alcançou uma média de 0.82 na pontuação AUROC no conjunto de teste, indicando uma boa capacidade de discriminação entre clientes rotativos e não rotativos.
-- A solução final foi encapsulada em um pipeline que pode ser facilmente aplicado a novos dados para prever a rotatividade dos clientes.
+Os resultados próximos entre validação cruzada e teste indicam que o modelo generaliza bem para clientes novos. Como a solução está encapsulada em um único pipeline, ela pode ser aplicada diretamente a novos dados.
 
-## Relatório da Solução
-No final do Jupyter Notebook, foi elaborado um relatório com a solução, que será revisado pelo líder da equipe. As etapas foram executadas rigorosamente, sem qualquer omissão. O plano incluiu:
+## Próximos passos
 
-1. **Exclusão e preenchimento de colunas**: Melhorando a avaliação do modelo.
-2. **Garantia contra vazamento de dados**: Separação de conjuntos de teste e treinamento.
-3. **Validação cruzada**: Para estimar a generalização do modelo.
-4. **Treinamento e teste do modelo**: Avaliação em dados reais.
+- Testar modelos de boosting (LightGBM, CatBoost) e comparar com a Regressão Logística
+- Criar uma feature de tempo de contrato a partir da data de início e de uma data de referência, sem usar informação do encerramento
+- Definir um limiar de decisão com base no custo das ações de retenção
 
-## Dificuldades Encontradas
-A maior dificuldade foi a implementação da validação cruzada, uma técnica que, apesar de complexa, é crucial para obter uma estimativa confiável do desempenho do modelo.
+## Tecnologias
 
-## Conclusão
-O modelo final, representado pelo pipeline com regressão logística, é uma solução robusta para prever a rotatividade de clientes. A pontuação AUROC de 0.82 indica que o modelo é eficaz e pode ser utilizado para guiar intervenções da equipe de marketing, melhorando a retenção de clientes na Interconnect.
+Python · Pandas · NumPy · Scikit-learn · Matplotlib · Jupyter Notebook
 
-## Clone
-
-Como Executar o Projeto Clone o repositório:
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_16
+pip install pandas numpy scikit-learn matplotlib jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_15 Abra o notebook:
-```
-
-
-
+Os conjuntos de dados foram fornecidos pela TripleTen durante o bootcamp e não estão incluídos no repositório. O relatório da solução está no notebook `modelo_para_predizer_a_rotatividade_relatorio_solucao.ipynb`.
 
 ## 🔗 Contato
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
 
 Email: gabrieldeoliver1@gmail.com
-
