@@ -17,7 +17,7 @@ A Sweet Lift Taxi coletou o histórico de pedidos de táxi nos aeroportos e prec
 1. **Análise exploratória:** visualização da série, média móvel e decomposição sazonal, que mostraram uma tendência de crescimento ao longo dos meses e uma sazonalidade diária bem definida.
 2. **Engenharia de features:** variáveis de calendário (ano, mês, dia e dia da semana), defasagens dos últimos 6 períodos (lags) e média móvel das 10 horas anteriores.
 3. **Divisão temporal:** 80% para treino e 20% para teste, sem embaralhar os dados, preservando a ordem cronológica.
-4. **Modelagem:** comparação entre Regressão Linear e Random Forest, com ajuste de hiperparâmetros via `GridSearchCV`.
+4. **Modelagem:** comparação entre Regressão Linear e Random Forest, com ajuste de hiperparâmetros via `GridSearchCV`. O conjunto de teste não participou do ajuste.
 
 ## Resultados
 
