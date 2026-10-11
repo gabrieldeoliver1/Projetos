@@ -22,11 +22,15 @@ A operadora Megaline quer um modelo que analise o comportamento dos clientes e r
 
 | Modelo | Acurácia (validação cruzada) |
 |---|---|
-| **Random Forest** | **0,81** |
+| **Random Forest** | **0,80** |
 | Árvore de Decisão | 0,79 |
-| Regressão Logística | 0,74 |
+| Regressão Logística | 0,75 |
 
-O Random Forest foi o modelo escolhido e alcançou **0,82 de acurácia no teste**. Como referência, um modelo que sempre recomendasse o plano Smart acertaria cerca de 69%.
+No conjunto de validação, o Random Forest também foi o melhor (0,82), contra 0,69 de um modelo que sempre recomendasse o plano Smart. No **teste**, alcançou **0,82 de acurácia**.
+
+## Correções desta versão
+
+A divisão dos dados passou a ter semente fixa e estratificação, as células que exibiam os parâmetros de outro modelo foram corrigidas, combinações de hiperparâmetros inválidas foram removidas e o modelo final passou a ser escolhido no conjunto de validação, com um teste de sanidade contra o modelo ingênuo.
 
 ## Próximos passos
 
@@ -46,7 +50,7 @@ pip install pandas numpy scikit-learn jupyter
 jupyter notebook
 ```
 
-O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`users_behavior.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook.
 
 ## 🔗 Contato
 
