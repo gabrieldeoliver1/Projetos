@@ -6,6 +6,8 @@
 
 ![Histórico e previsão](previsao.png)
 
+> 🔄 **Versão automatizada:** este projeto virou um pipeline que se atualiza sozinho toda semana, com coleta na API do IBGE, validação dos dados, nova previsão e monitoramento do erro: [previsao-vendas-material-construcao](https://github.com/gabrieldeoliver1/previsao-vendas-material-construcao).
+
 ## Problema de negócio
 
 Para um home center, saber quanto o mercado vai vender nos próximos meses orienta compras, estoque, escala de equipes e metas. Comprar demais imobiliza capital; comprar de menos significa ruptura e venda perdida. Este projeto prevê o volume de vendas do varejo de material de construção no Brasil para os próximos 12 meses, a partir de dados públicos do IBGE.
@@ -48,7 +50,7 @@ O modelo final é um **SARIMA(1,1,0)x(1,1,1,12)** sobre o logaritmo da série, c
 
 - Incluir variáveis econômicas, como juros, crédito imobiliário e emprego, para antecipar choques
 - Considerar os feriados nacionais no cálculo de dias úteis
-- Automatizar a atualização mensal da previsão, assim que o IBGE divulgar um novo dado
+- ✅ Automatizar a atualização da previsão: feito no repositório [previsao-vendas-material-construcao](https://github.com/gabrieldeoliver1/previsao-vendas-material-construcao)
 - Publicar um painel interativo com a previsão
 
 ## Tecnologias
