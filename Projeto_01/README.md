@@ -1,41 +1,52 @@
-# Música na Cidade
+# Comportamento de Usuários de Streaming de Música em Duas Cidades
 
-Descrição do Projeto: O projeto "Música na Cidade" explora a relação entre música e ambiente urbano. Utilizando dados de diferentes fontes, analisamos como a música influencia e é influenciada pelo contexto das cidades. O objetivo é entender as preferências musicais em diferentes regiões e como elas se relacionam com fatores sociais e culturais.
+> **Resultado:** a atividade dos usuários varia conforme o dia da semana e a cidade, mas as preferências de gênero musical são praticamente iguais nas duas cidades. Das três hipóteses testadas, uma foi confirmada e duas foram rejeitadas.
 
-Contribuições Sinta-se à vontade para contribuir com melhorias ou sugestões. Crie um pull request ou abra uma issue para discutir suas ideias.
+## Problema de negócio
 
+Um serviço de streaming de música (dados do Yandex.Music) quer entender se os usuários de duas cidades, Springfield e Shelbyville, escutam música de forma diferente. O objetivo é testar hipóteses sobre o comportamento dos usuários antes de tomar decisões de negócio.
 
+## Dados
 
+- 65.079 registros de músicas tocadas, com usuário, música, artista, gênero, cidade, horário e dia da semana
+- Dados de três dias da semana: segunda, quarta e sexta-feira
 
-## 🛠 Skills
+## Abordagem
 
-Tecnologias Utilizadas 
-- Python
-- Jupyter
-- Notebook
-- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy.
+1. **Pré-processamento:** padronização dos nomes das colunas, tratamento de valores ausentes, remoção de 3.826 registros duplicados e correção de duplicatas implícitas no gênero (por exemplo, `hip`, `hop` e `hip-hop` unificados em `hiphop`).
+2. **Teste das hipóteses:** agrupamento dos dados por cidade, dia da semana e faixa de horário para comparar volume de músicas e gêneros mais ouvidos.
 
-Funcionalidades: 
-- Análise de dados musicais 
-- Visualizações interativas 
-- Insights sobre tendências musicais em ambientes urbanos.
+## Resultados
 
+**Hipótese 1 – a atividade varia por dia da semana e cidade: confirmada**
 
-## Clone
+| Cidade | Segunda | Quarta | Sexta |
+|---|---|---|---|
+| Springfield | 15.740 | 11.056 | 15.945 |
+| Shelbyville | 5.614 | 7.003 | 5.895 |
 
-Como Executar o Projeto Clone o repositório:
+Em Springfield, o pico é na segunda e na sexta, com queda na quarta. Em Shelbyville acontece o contrário: a quarta é o dia de maior atividade.
+
+**Hipótese 2 – os gêneros ouvidos na segunda de manhã e na sexta à noite diferem entre as cidades: rejeitada.** Os gêneros mais ouvidos são praticamente os mesmos nas duas cidades nesses períodos.
+
+**Hipótese 3 – Shelbyville prefere rap e Springfield prefere pop: rejeitada.** Pop é o gênero mais ouvido nas duas cidades, e o rap não aparece entre os cinco primeiros em nenhuma delas.
+
+**Limitação:** a quantidade de registros sem gênero informado é alta o suficiente para aparecer entre os 15 gêneros mais ouvidos em Springfield, o que pede cautela na interpretação da hipótese 2.
+
+## Tecnologias
+
+Python · Pandas · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_01
+pip install pandas jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_01 Abra o notebook:
-```
-
-
-
-
+O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
 
 ## 🔗 Contato
 

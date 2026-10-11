@@ -1,104 +1,51 @@
+# Escolha da Melhor Região para Novos Poços de Petróleo
 
-# Modelo para escolher O Melhor Lugar para um Novo Poço
+> **Resultado:** a **Região 1** foi recomendada por ser a única com risco de prejuízo abaixo do limite de 2,5% (risco de 0,7%), com lucro médio estimado de **US$ 5,07 milhões**.
 
-Descrição do Projeto: Este projeto tem como objetivo identificar a melhor localização para a perfuração de um novo poço, utilizando técnicas de análise de dados e machine learning. O foco é analisar dados geográficos e de produção de poços existentes para determinar áreas com maior potencial.
+## Problema de negócio
 
-Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade para criar um pull request ou abrir uma issue para compartilhar suas ideias.
+A mineradora OilyGiant precisa decidir onde desenvolver 200 novos poços de petróleo, com orçamento de US$ 100 milhões. O objetivo é escolher, entre três regiões, a que oferece o maior lucro com risco de prejuízo inferior a 2,5%.
 
+## Dados
 
+- Três regiões, com 100.000 poços cada
+- Três características geológicas por poço e o volume de reservas (em milhares de barris)
 
+## Abordagem
 
-## 🛠 Skills
+1. **Modelagem:** um modelo de Regressão Linear por região para prever o volume de reservas de cada poço.
+2. **Cálculo de lucro:** seleção dos 200 poços com maior volume previsto e cálculo do lucro esperado, considerando receita de US$ 4.500 por mil barris.
+3. **Análise de risco com bootstrapping:** 1.000 simulações de estudos com 500 pontos por região, para estimar o lucro médio, o intervalo de confiança de 95% e o risco de prejuízo.
 
-Tecnologias Utilizadas:
+## Resultados
 
-- Python
-- Jupyter Notebook
-Bibliotecas:
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- SciPy
+| Região | RMSE do modelo | Lucro médio | Intervalo de confiança de 95% | Risco de prejuízo |
+|---|---|---|---|---|
+| 0 | 37,80 | US$ 5,15 mi | US$ 0,11 mi a US$ 10,55 mi | 2,5% |
+| **1** | **0,89** | **US$ 5,07 mi** | **US$ 0,79 mi a US$ 9,32 mi** | **0,7%** |
+| 2 | 39,98 | US$ 3,87 mi | –US$ 1,36 mi a US$ 9,03 mi | 6,7% |
 
-Funcionalidades
+## Conclusão para o negócio
 
-1. Carregamento e Limpeza de Dados:
+A Região 0 tem lucro médio um pouco maior, mas atinge o limite de risco de 2,5%. A Região 1 combina lucro médio próximo, menor risco de prejuízo e o modelo mais preciso, sendo a recomendação para o desenvolvimento dos novos poços.
 
-- Importação de dados geográficos e de produção de poços.
-- Tratamento de valores ausentes e inconsistências nos dados.
+## Tecnologias
 
+Python · Pandas · NumPy · SciPy · Scikit-learn · Matplotlib · Seaborn · Jupyter Notebook
 
-
-2. Análise Exploratória de Dados (EDA):
-
-- Visualização de dados geográficos utilizando mapas
-- Análise de distribuições de produção de poços existentes.
-- Identificação de padrões e tendências geográficas.
-
-
-
-3. Preparação dos Dados:
-
-- Codificação de variáveis categóricas.
-- Normalização e padronização de dados.
-- Criação de variáveis adicionais que podem influenciar a produção
-
-
-
-4. Modelagem Preditiva:
-
-Implementação de diversos algoritmos de machine learning, como:
-- Regressão Logística
-- Árvores de Decisão
-- Random Forest
-- Gradient Boosting
-- Avaliação do desempenho dos modelos utilizando métricas como R², MAE e RMSE
-
-
-
-5. Validação do Modelo:
-
-- Uso de validação cruzada para garantir a robustez do modelo.
-- Análise de overfitting e underfitting.
-
-
-
-6. Interpretação dos Resultados:
-
-- Geração de mapas interativos para visualizar as áreas com maior potencial para novos poços.
-- Análise espacial para identificar correlações entre a localização e a produção.
-
-
-
-7. Recomendações:
-
-- Sugestões de locais ideais para a perfuração de novos poços com base nas análises realizadas.
-
-
-
-## Clone
-
-Como Executar o Projeto Clone o repositório:
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_09
+pip install pandas numpy scipy scikit-learn matplotlib seaborn jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_09 Abra o notebook:
-```
-
-
-
-
+Os conjuntos de dados foram fornecidos pela TripleTen durante o bootcamp e não estão incluídos no repositório. Para reproduzir o projeto, ajuste os caminhos dos arquivos na célula de leitura dos dados.
 
 ## 🔗 Contato
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
 
 Email: gabrieldeoliver1@gmail.com
-
-
-

@@ -1,66 +1,58 @@
-# Prototipagem de um Modelo de Aprendizado de Máquina para Previsão de Pagamentos de Seguro
+# Machine Learning e Proteção de Dados para uma Seguradora
 
-## Descrição do Projeto
-Este projeto visa desenvolver um protótipo de modelo de aprendizado de máquina para prever a probabilidade de um cliente receber um pagamento de seguro, utilizando dados históricos. O foco é entender e aplicar técnicas de machine learning para gerar insights valiosos e auxiliar na tomada de decisões.
+> **Resultado:** ofuscação de dados pessoais de clientes com uma matriz invertível: os dados ficam ilegíveis após a transformação e são recuperados integralmente com a matriz inversa.
 
-## Tecnologias Utilizadas
-- **Python**: Linguagem de programação principal utilizada para o desenvolvimento do modelo.
-- **Jupyter Notebook**: Ambiente interativo utilizado para a execução do código e visualização dos resultados.
+## Problema de negócio
 
-### Bibliotecas:
-- **Pandas**: Para manipulação e análise de dados.
-- **NumPy**: Para operações numéricas e manipulação de matrizes.
-- **Scikit-learn**: Para implementação de algoritmos de aprendizado de máquina.
-- **Matplotlib**: Para visualização de dados.
-- **Seaborn**: Para visualizações estatísticas mais atraentes.
-- **SciPy**: Para cálculos científicos e técnicas avançadas de matemática.
+A seguradora Proteja Seu Amanhã quer avaliar como o aprendizado de máquina pode ajudar em quatro tarefas: encontrar clientes semelhantes para ações de marketing, prever se um cliente vai receber um pagamento de seguro, prever quantos pagamentos ele vai receber e proteger os dados pessoais dos clientes sem prejudicar os modelos.
 
-## Funcionalidades Implementadas
+## Dados
 
-1. **Coleta de Dados**:
-   - Dados relevantes foram coletados e organizados para análise.
+- 5.000 clientes, com gênero, idade, salário, número de membros da família e número de pagamentos de seguro recebidos
 
-2. **Limpeza e Pré-processamento**:
-   - Tratamento de valores ausentes e inconsistências nos dados, incluindo normalização e transformação de variáveis.
+## Abordagem
 
-3. **Análise Exploratória de Dados (EDA)**:
-   - Realização de visualizações para entender as distribuições e correlações entre variáveis, utilizando gráficos de dispersão e histogramas.
+1. **Clientes semelhantes (kNN):** busca de vizinhos mais próximos com distâncias euclidiana e de Manhattan, comparando dados com e sem escalonamento.
+2. **Classificação:** construção de linhas de base com modelos aleatórios para a previsão de recebimento de pagamento.
+3. **Regressão:** implementação própria de Regressão Linear a partir da formulação em álgebra linear (equação normal), para prever o número de pagamentos.
+4. **Ofuscação de dados:** multiplicação das características pessoais por uma matriz aleatória invertível, verificação da inversibilidade e recuperação dos dados originais com a matriz inversa.
 
-4. **Divisão dos Dados**:
-   - Os dados foram divididos em conjuntos de treinamento e teste para garantir uma avaliação justa do modelo.
+## Resultados
 
-5. **Modelagem Preditiva**:
-   - Implementação de um modelo de **kNN** para prever a probabilidade de um cliente receber um pagamento de seguro.
-   - Avaliação do modelo utilizando a métrica **F1**, que fornece uma interpretação da precisão do modelo nas previsões.
+- **Ofuscação:** após a transformação, idade, gênero, salário e tamanho da família deixam de ser legíveis; com a matriz inversa, os valores originais são recuperados, com diferenças apenas na ordem de 10⁻¹² (arredondamento numérico).
+- **Regressão Linear própria:** RMSE de 0,23 na previsão do número de pagamentos.
+- **Classificação:** a melhor linha de base aleatória obteve F1 de 0,20.
 
-6. **Regressão Linear**:
-   - Construção de um modelo de **Regressão Linear** para prever o número de pagamentos de seguro que um novo cliente provavelmente receberá.
-   - Avaliação do modelo com dados originais e ofuscados, garantindo que a qualidade das previsões não seja comprometida.
+A ofuscação com matriz invertível é uma aplicação direta de princípios de proteção de dados, como os da LGPD: os dados podem ser compartilhados para modelagem sem expor as informações pessoais dos clientes.
 
-7. **Ofuscação de Dados**:
-   - Desenvolvimento de um algoritmo para proteger dados pessoais dos clientes sem comprometer a qualidade do modelo de aprendizado de máquina. O ofuscamento foi testado para garantir que o modelo de regressão linear mantivesse sua eficácia.
+## Observações técnicas
 
-8. **Validação do Modelo**:
-   - Aplicação de validação cruzada para garantir a robustez e a generalização do modelo.
+Na revisão do notebook, identifiquei pontos na tarefa de regressão que estão documentados no próprio notebook:
 
-9. **Geração de Relatórios**:
-   - Criação de relatórios que sintetizam os insights obtidos e as recomendações para a companhia de seguros.
+- A função de avaliação reporta a raiz quadrada do R² (o valor exibido de 0,66 corresponde a um R² de cerca de 0,44).
+- O modelo foi ajustado novamente no conjunto de teste antes da avaliação.
+- O teste da regressão com dados ofuscados usou os dados originais, então a comparação empírica entre dados originais e ofuscados ainda precisa ser executada. Pela teoria, as previsões da Regressão Linear não mudam quando as características são multiplicadas por uma matriz invertível, e é esse o resultado esperado na nova execução.
 
-## Clone
+## Próximos passos
 
-Como Executar o Projeto Clone o repositório:
+- Executar a regressão com os dados ofuscados e comparar as previsões e as métricas com as dos dados originais
+- Ajustar o modelo apenas no conjunto de treino e reportar o R² sem a raiz quadrada
+- Treinar o classificador kNN e compará-lo com as linhas de base aleatórias
+
+## Tecnologias
+
+Python · Pandas · NumPy · Scikit-learn · Álgebra Linear · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_11
+pip install pandas numpy scikit-learn seaborn jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_11 Abra o notebook:
-```
-
-
-
-
+O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
 
 ## 🔗 Contato
 

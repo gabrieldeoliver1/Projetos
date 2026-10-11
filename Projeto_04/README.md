@@ -1,47 +1,56 @@
+# Qual Plano de Telefonia Gera Mais Receita
 
-# Análise de Planos de Receita
+> **Resultado:** os clientes do plano Ultimate geram receita média de US$ 70 por mês, contra US$ 50 do plano Surf. A diferença é estatisticamente significativa (valor-p ≈ 1e-93).
 
-Descrição do Projeto: O projeto "Análise de Planos de Receita" investiga quais planos de serviços geram mais receita. Utilizando dados de diferentes fontes, analisamos as características e o desempenho de diversos planos, buscando entender quais fatores contribuem para o sucesso financeiro. O objetivo é fornecer insights que ajudem empresas a otimizar suas ofertas e estratégias de marketing.
+## Problema de negócio
 
-Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade para criar um pull request ou abrir uma issue para compartilhar suas ideias.
+A operadora de telecomunicações Megaline oferece dois planos pré-pagos, Surf e Ultimate. O departamento comercial quer saber qual plano gera mais receita para ajustar o orçamento de publicidade.
 
+## Dados
 
+- Amostra de 500 clientes, com registros de chamadas, mensagens e uso de internet ao longo de 2018
+- Cinco tabelas: usuários, chamadas, mensagens, sessões de internet e planos
 
+## Abordagem
 
-## 🛠 Skills
+1. **Pré-processamento:** correção de tipos de dados, tratamento de duplicatas e valores ausentes.
+2. **Agregação mensal:** cálculo, para cada cliente e mês, do total de minutos, mensagens e dados usados, e da receita considerando as cobranças acima do limite do plano.
+3. **Análise estatística:** média, variância e desvio padrão do consumo e da receita em cada plano.
+4. **Testes de hipóteses:** comparação da receita média entre os planos e entre a região de NY-NJ e as demais regiões.
 
-- Python
-- Jupyter Notebook
-- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+## Resultados
 
-Funcionalidades:
+| Plano | Receita média mensal por cliente | Desvio padrão |
+|---|---|---|
+| Ultimate | US$ 70,34 | US$ 2,62 |
+| Surf | US$ 50,13 | US$ 33,91 |
 
-- Análise de dados de receita
-- Visualizações interativas
-- Insights sobre os fatores que influenciam a receita dos planos
-- Testagem de Hipóteses
-- Significância Estatística
-- Análise de Variância (ANOVA)
+| Hipótese | Valor-p | Conclusão |
+|---|---|---|
+| A receita média dos planos Surf e Ultimate é igual | ≈ 1e-93 | Rejeitada: as receitas são diferentes |
+| A receita média de NY-NJ é igual à das demais regiões | 0,056 | Não rejeitada ao nível de 5% |
 
-## Clone
+## Conclusão para o negócio
 
-Como Executar o Projeto Clone o repositório:
+Por cliente, o Ultimate é o plano mais rentável e tem receita estável. O Surf tem receita média menor e muito mais variável, porque muitos clientes ultrapassam os limites do pacote e pagam cobranças extras, o que pode afetar a satisfação. A receita por cliente favorece concentrar o orçamento de publicidade no Ultimate.
+
+## Tecnologias
+
+Python · Pandas · NumPy · SciPy · Matplotlib · Seaborn · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_04
+pip install pandas numpy scipy matplotlib seaborn jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_04 Abra o notebook:
-```
-
-
-
-
+Os conjuntos de dados foram fornecidos pela TripleTen durante o bootcamp e não estão incluídos no repositório. Para reproduzir o projeto, ajuste os caminhos dos arquivos na célula de leitura dos dados.
 
 ## 🔗 Contato
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
 
 Email: gabrieldeoliver1@gmail.com
-

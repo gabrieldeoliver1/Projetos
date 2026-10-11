@@ -1,49 +1,56 @@
+# Padrões de Sucesso de Videogames
 
-# Quais Padrões que Determinam se um Jogo Tem Sucesso?
+> **Resultado:** a nota da crítica tem correlação moderada com as vendas (0,39 no PS4), enquanto a nota dos usuários praticamente não tem relação (0,002). PS4 e Xbox One eram as plataformas mais promissoras para a campanha de 2017.
 
-Descrição do Projeto: O projeto "Quais Padrões que Determinam se um Jogo Tem Sucesso?" investiga os fatores que influenciam o sucesso de jogos eletrônicos. Através da análise de dados de vendas, avaliações e características dos jogos, buscamos identificar padrões que podem prever o desempenho comercial e a recepção crítica. O objetivo é fornecer insights valiosos para desenvolvedores e estúdios de jogos, auxiliando na criação de produtos que ressoem com o público.
+## Problema de negócio
 
-Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade para criar um pull request ou abrir uma issue para compartilhar suas ideias.
+A loja online Ice vende videogames no mundo todo. O objetivo é identificar padrões que determinam o sucesso de um jogo, para apostar nos títulos com mais potencial e planejar as campanhas publicitárias de 2017.
 
+## Dados
 
+- 16.715 jogos, com plataforma, ano de lançamento, gênero, vendas por região (América do Norte, Europa, Japão e outras), notas da crítica e dos usuários e classificação etária (ESRB)
 
+## Abordagem
 
-## 🛠 Skills
+1. **Pré-processamento:** padronização de colunas, tratamento de valores ausentes (incluindo o valor "tbd" nas notas dos usuários) e criação da coluna de vendas totais.
+2. **Análise exploratória:** ciclo de vida das plataformas, vendas por plataforma e gênero, e correlação entre notas e vendas.
+3. **Perfil por região:** plataformas, gêneros e classificações etárias mais vendidos em cada região.
+4. **Testes de hipóteses:** comparação das notas médias dos usuários entre plataformas e entre gêneros.
 
-Tecnologias Utilizadas:
+## Resultados
 
-- Python
-- Jupyter Notebook
-- Bibliotecas: Pandas, Matplotlib, Seaborn, NumPy
+- **Ciclo de vida:** as plataformas duram em média cerca de 7 anos.
+- **Plataformas promissoras:** PS4, Xbox One, WiiU e PC. O PS4 tem a maior venda média por jogo (0,80 milhão), seguido do Xbox One (0,65 milhão).
+- **Notas e vendas (PS4):** correlação de 0,39 com a nota da crítica e de 0,002 com a nota dos usuários.
+- **Gêneros:** tiro, ação e esportes vendem mais; luta, aventura e quebra-cabeça vendem menos.
+- **Classificação etária:** jogos "M" (17+) lideram na América do Norte e na Europa; no Japão, lideram os jogos "E" (livre).
 
-Funcionalidades:
+| Hipótese | Valor-p | Conclusão |
+|---|---|---|
+| As notas médias dos usuários de Xbox One e PC são iguais | 0,66 | Não rejeitada |
+| As notas médias dos usuários de Ação e Esportes são diferentes | ≈ 3,6e-9 | Confirmada |
 
-- Análise de dados sobre vendas e avaliações de jogos
-- Visualizações interativas para explorar padrões
-- Insights sobre características que influenciam o sucesso comercial
-- Testagem de Hipóteses
-- Significância Estatística
-- Análise de Variância (ANOVA)
-  
-## Clone
+## Conclusão para o negócio
 
-Como Executar o Projeto Clone o repositório:
+Para 2017, a recomendação é concentrar a campanha em jogos de PS4 e Xbox One, nos gêneros de tiro, ação e esportes, usando a nota da crítica como sinal de potencial de vendas e adaptando o portfólio ao perfil de cada região.
+
+## Tecnologias
+
+Python · Pandas · NumPy · SciPy · Matplotlib · Seaborn · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_05
+pip install pandas numpy scipy matplotlib seaborn jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_05 Abra o notebook:
-```
-
-
-
-
+O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
 
 ## 🔗 Contato
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
 
 Email: gabrieldeoliver1@gmail.com
-

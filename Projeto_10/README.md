@@ -1,62 +1,51 @@
+# Previsão da Recuperação de Ouro em um Processo Industrial
 
-# Prototipagem de um Modelo de Aprendizado de Máquina para o Zyfra
+> **Resultado:** sMAPE final de **7,84%** na previsão da recuperação de ouro, com Regressão Linear.
 
-## Descrição do Projeto
-Este projeto visa desenvolver um protótipo de modelo de aprendizado de máquina para prever comportamentos específicos de clientes, utilizando dados históricos. O foco é entender e aplicar técnicas de machine learning para gerar insights valiosos.
+## Problema de negócio
 
-## Tecnologias Utilizadas
-- **Python**: Linguagem de programação principal utilizada para o desenvolvimento do modelo.
-- **Jupyter Notebook**: Ambiente interativo utilizado para a execução do código e visualização dos resultados.
+A Zyfra desenvolve soluções de eficiência para a indústria pesada. O objetivo é criar um protótipo de modelo que preveja a quantidade de ouro recuperada do minério durante a extração e a purificação, ajudando a otimizar a produção e a eliminar parâmetros não rentáveis.
 
-### Bibliotecas:
-- **Pandas**: Para manipulação e análise de dados.
-- **NumPy**: Para operações numéricas e manipulação de matrizes.
-- **Scikit-learn**: Para implementação de algoritmos de aprendizado de máquina.
-- **Matplotlib**: Para visualização de dados.
-- **Seaborn**: Para visualizações estatísticas mais atraentes.
-- **SciPy**: Para cálculos científicos e técnicas avançadas de matemática.
+## Dados
 
-## Funcionalidades Implementadas
+- Dados do processo de extração e purificação de ouro, divididos em conjunto de treino (16.860 registros e 87 variáveis), conjunto de teste (5.856 registros) e conjunto completo
+- Duas variáveis-alvo: a recuperação de ouro na etapa de flotação (concentrado bruto) e no concentrado final
 
-1. **Coleta de Dados**:
-   - Dados relevantes foram coletados e organizados para análise.
+## Abordagem
 
-2. **Limpeza e Pré-processamento**:
-   - Tratamento de valores ausentes e inconsistências nos dados, incluindo normalização e transformação de variáveis.
+1. **Validação dos dados:** conferência do cálculo da recuperação de ouro a partir das concentrações em cada etapa.
+2. **Pré-processamento:** preenchimento de valores ausentes e verificação de duplicatas.
+3. **Análise exploratória:** variação das concentrações de ouro, prata e chumbo em cada etapa da purificação e comparação das distribuições de tamanho de partícula entre treino e teste.
+4. **Tratamento de anomalias:** remoção de registros com concentração total anormal das substâncias.
+5. **Modelagem:** Regressão Linear para prever as duas etapas, avaliada com sMAPE (erro percentual absoluto médio simétrico).
 
-3. **Análise Exploratória de Dados (EDA)**:
-   - Realização de visualizações para entender as distribuições e correlações entre variáveis, utilizando gráficos de dispersão e histogramas.
+## Resultados
 
-4. **Divisão dos Dados**:
-   - Os dados foram divididos em conjuntos de treinamento e teste para garantir uma avaliação justa do modelo.
+| Etapa | sMAPE |
+|---|---|
+| Flotação (concentrado bruto) | 6,14% |
+| Concentrado final | 8,41% |
+| **sMAPE final ponderado (25% flotação, 75% final)** | **7,84%** |
 
-5. **Modelagem Preditiva**:
-   - Implementação de um modelo de **Regressão Logística** para prever a probabilidade de eventos relacionados aos clientes.
-   - Avaliação do modelo utilizando a métrica **SMAPE (Symmetric Mean Absolute Percentage Error)**, que fornece uma interpretação percentual do erro nas previsões.
+## Próximos passos
 
-6. **Validação do Modelo**:
-   - Aplicação de validação cruzada para garantir a robustez e a generalização do modelo.
+- Comparar a Regressão Linear com modelos baseados em árvores, como Random Forest e LightGBM, usando validação cruzada
+- Avaliar o modelo contra uma linha de base que preveja a média, para medir o ganho real
 
-7. **Geração de Relatórios**:
-   - Criação de relatórios que sintetizam os insights obtidos e as recomendações para a Zyfra.
+## Tecnologias
 
-## Clone
+Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Jupyter Notebook
 
-Como Executar o Projeto Clone o repositório:
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_10
+pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_10 Abra o notebook:
-```
-
-
-
-
-
-
+Os conjuntos de dados foram fornecidos pela TripleTen durante o bootcamp e não estão incluídos no repositório. Para reproduzir o projeto, ajuste os caminhos dos arquivos na célula de leitura dos dados.
 
 ## 🔗 Contato
 

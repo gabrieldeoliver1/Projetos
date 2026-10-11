@@ -1,55 +1,55 @@
+# Recomendação de Plano de Telefonia com Classificação
 
-# Análise de Planos de Receita da Megaline
+> **Resultado:** **82% de acurácia** no conjunto de teste com Random Forest, acima da meta de 75%.
 
-Descrição do Projeto: O projeto "Análise de Planos de Receita da Megaline" tem como objetivo avaliar e recomendar um dos planos de serviços oferecidos pela Megaline, especificamente os planos Smart e Ultra. Através da análise de dados, buscamos entender as características de cada plano e como elas impactam a satisfação e a receita. O objetivo final é fornecer recomendações baseadas em dados para ajudar os consumidores a escolherem o plano que melhor atende às suas necessidades.
+## Problema de negócio
 
-Contribuições: Estamos abertos a sugestões e melhorias! Sinta-se à vontade para criar um pull request ou abrir uma issue para compartilhar suas ideias.
+A operadora Megaline quer um modelo que analise o comportamento dos clientes e recomende um dos seus planos mais recentes: Smart ou Ultra.
 
+## Dados
 
+- 3.214 clientes, com número de chamadas, minutos, mensagens e uso de internet por mês
+- Variável-alvo: plano do cliente (69% Smart e 31% Ultra)
 
+## Abordagem
 
-## 🛠 Skills
+1. **Divisão dos dados:** 60% treino, 20% validação e 20% teste.
+2. **Modelagem:** comparação entre Árvore de Decisão, Random Forest e Regressão Logística.
+3. **Ajuste de hiperparâmetros:** `GridSearchCV` com validação cruzada de 5 folds para cada modelo.
+4. **Avaliação final:** aplicação do melhor modelo no conjunto de teste.
 
-Tecnologias Utilizadas:
+## Resultados
 
-- Python
-- Jupyter Notebook
-- Bibliotecas:
-- Pandas
-- Matplotlib
-- Seaborn
-- NumPy
-- Scikit-learn (para modelos de machine learning)
+| Modelo | Acurácia (validação cruzada) |
+|---|---|
+| **Random Forest** | **0,81** |
+| Árvore de Decisão | 0,79 |
+| Regressão Logística | 0,74 |
 
-Funcionalidades
+O Random Forest foi o modelo escolhido e alcançou **0,82 de acurácia no teste**. Como referência, um modelo que sempre recomendasse o plano Smart acertaria cerca de 69%.
 
-- Análise comparativa dos planos Smart e Ultra
-- Visualizações interativas para melhor compreensão dos dados
-- Implementação de modelos de machine learning:
-- Regressão Linear
-- Árvores de Decisão
-- Random Forest
-- Recomendações baseadas em análise de dados e predições dos modelos
+## Próximos passos
 
-## Clone
+- Avaliar também precisão e recall da classe Ultra, já que as classes são desbalanceadas
+- Analisar a importância das variáveis para explicar as recomendações ao time comercial
 
-Como Executar o Projeto Clone o repositório:
+## Tecnologias
+
+Python · Pandas · NumPy · Scikit-learn · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_07
+pip install pandas numpy scikit-learn jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_07 Abra o notebook:
-```
-
-
-
-
+O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
 
 ## 🔗 Contato
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
 
 Email: gabrieldeoliver1@gmail.com
-
