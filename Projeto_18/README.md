@@ -6,6 +6,8 @@
 
 ![Inadimplência por faixa de risco](faixas_de_risco.png)
 
+> 🚀 **Este modelo está em produção como API:** [api-risco-de-credito](https://github.com/gabrieldeoliver1/api-risco-de-credito), com FastAPI, Docker, testes automatizados e integração contínua.
+
 ## Problema de negócio
 
 Toda vez que um banco concede ou mantém crédito, assume o risco de não receber. Para gerenciar esse risco, os bancos estimam a probabilidade de inadimplência (PD) de cada cliente e a usam para decidir quem aprovar, qual limite oferecer e onde concentrar a cobrança. Este projeto constrói esse modelo para clientes de cartão de crédito e o transforma em uma política de crédito.
