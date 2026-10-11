@@ -1,6 +1,6 @@
 # Detecção Automática de Resenhas Negativas de Filmes
 
-> **Resultado:** **88% de acurácia** e **ROC AUC de 0,95** no conjunto de teste, com NLTK + TF-IDF + Regressão Logística.
+> **Resultado:** **F1 de 0,88**, acima da meta de 0,85, com **88% de acurácia** e **ROC AUC de 0,95** no conjunto de teste, usando NLTK + TF-IDF + Regressão Logística.
 
 ## Problema de negócio
 
@@ -22,20 +22,21 @@ A Film Junky Union, uma comunidade de entusiastas de filmes clássicos, está de
 
 ## Resultados (conjunto de teste)
 
-| Modelo | Acurácia | ROC AUC | APS |
-|---|---|---|---|
-| Baseline (constante) | 50% | – | – |
-| **NLTK + TF-IDF + Regressão Logística** | **88%** | **0,95** | **0,95** |
-| spaCy + TF-IDF + Regressão Logística | 88% | 0,95 | 0,95 |
-| spaCy + TF-IDF + LightGBM | 86% | 0,94 | 0,93 |
+| Modelo | Acurácia | F1 | ROC AUC | APS |
+|---|---|---|---|---|
+| Baseline (constante) | 50% | – | – | – |
+| **NLTK + TF-IDF + Regressão Logística** | **88%** | **0,88** | **0,95** | **0,95** |
+| spaCy + TF-IDF + Regressão Logística | 88% | 0,88 | 0,95 | 0,95 |
+| spaCy + TF-IDF + LightGBM | 86% | 0,86 | 0,94 | 0,93 |
+
+Os três modelos superam a meta de F1 de 0,85.
 
 O modelo com NLTK e Regressão Logística foi o escolhido: obteve o melhor desempenho com o pré-processamento mais simples e rápido.
 
-**Nota sobre o F1:** a função de avaliação registrava o F1 no limiar 0, o que resultava em 0,67 para todos os modelos. O erro foi corrigido no notebook (detalhes na nota ao lado da função `evaluate_model`), e os valores de F1 serão atualizados na próxima execução. Acurácia, ROC AUC e APS não são afetados.
+**Correção desta versão:** a versão anterior registrava o F1 no limiar 0, o que dava 0,67 para todos os modelos. O cálculo foi corrigido e o notebook foi executado novamente. Também corrigi a seção de resenhas próprias, que usava uma Regressão Logística no lugar do modelo LightGBM.
 
 ## Próximos passos
 
-- Executar novamente o notebook para registrar o F1 corrigido
 - Testar embeddings de modelos de linguagem pré-treinados (como BERT) em GPU e comparar com o TF-IDF
 
 ## Tecnologias
@@ -52,7 +53,7 @@ python -m spacy download en_core_web_sm
 jupyter notebook
 ```
 
-O conjunto de dados (`imdb_reviews.tsv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`imdb_reviews.tsv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook. O processamento com spaCy leva cerca de 15 minutos.
 
 ## 🔗 Contato
 
