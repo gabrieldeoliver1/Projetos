@@ -1,6 +1,6 @@
 # Portfólio de Ciência de Dados e Machine Learning
 
-Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 17 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio, desenvolvidos durante a formação em Ciência de Dados na TripleTen e com dados públicos do IBGE.
+Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 17 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio, com dados da formação em Ciência de Dados na TripleTen e dados públicos do IBGE.
 
 Cada projeto tem um README próprio com o problema, os dados, a abordagem e os resultados.
 
