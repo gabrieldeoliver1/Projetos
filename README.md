@@ -1,6 +1,6 @@
 # Portfólio de Ciência de Dados e Machine Learning
 
-Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior, desenvolvidos durante a formação em Ciência de Dados na TripleTen. Os 17 projetos cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio.
+Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 17 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio. Os projetos 1 a 16 foram desenvolvidos durante a formação em Ciência de Dados na TripleTen; o projeto 17 é um projeto próprio, com dados públicos do IBGE.
 
 Cada projeto tem um README próprio com o problema, os dados, a abordagem e os resultados.
 
@@ -50,7 +50,7 @@ cd Projetos/Projeto_XX
 jupyter notebook
 ```
 
-Cada README traz as bibliotecas necessárias. Os conjuntos de dados foram fornecidos pela TripleTen e não estão incluídos no repositório.
+Cada README traz as bibliotecas necessárias. Os conjuntos de dados dos projetos 1 a 16 foram fornecidos pela TripleTen e não estão incluídos no repositório; os dados do projeto 17 são públicos e estão na pasta do projeto.
 
 ## 🔗 Contato
 
