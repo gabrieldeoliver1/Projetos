@@ -1,58 +1,52 @@
+# Estimativa de Idade por Imagem para Evitar a Venda de Álcool a Menores
 
-# Garantindo que não Vendam Álcool para Menores de Idade
+> **Resultado:** erro absoluto médio (MAE) de **5,79 anos** no conjunto de validação, com transfer learning sobre a ResNet50.
 
-## Descrição do Projeto
-Este projeto desenvolve um modelo de aprendizado de máquina utilizando processamento de imagens para garantir que estabelecimentos comerciais não vendam álcool para menores de idade. O modelo é treinado para estimar a idade de uma pessoa com base em uma imagem facial, utilizando técnicas avançadas de deep learning.
+## Problema de negócio
 
-## Tecnologias Utilizadas
-- **Python**: Linguagem principal para desenvolvimento do projeto.
-- **TensorFlow**: Biblioteca usada para construir e treinar o modelo de deep learning.
-- **Keras**: API de alto nível usada para construir redes neurais.
-- **Pandas**: Manipulação e análise de dados.
-- **Matplotlib**: Visualização de dados e gráficos.
+Estabelecimentos comerciais precisam verificar a idade dos clientes na venda de bebidas alcoólicas. A proposta é um modelo de visão computacional que estime a idade de uma pessoa a partir de uma foto do rosto, apoiando essa verificação no momento da compra.
 
-### Bibliotecas Utilizadas:
-- **ResNet50**: Modelo de rede neural convolucional pré-treinado usado para extração de características das imagens.
-- **ImageDataGenerator**: Utilizado para a geração e pré-processamento de imagens.
-- **Adam**: Otimizador utilizado para ajustar os pesos da rede neural.
-- **GlobalAveragePooling2D**: Operação de pooling para reduzir a dimensionalidade da saída da rede convolucional.
+## Dados
 
-## Funcionalidades Implementadas
+- 7.591 fotos de rostos, cada uma rotulada com a idade real da pessoa
+- Idades de 1 a 100 anos, com média de 31 e mediana de 29 anos
+- Divisão de 75% para treino e 25% para validação
 
-1. **Carregamento e Preparação dos Dados**:
-   - Os dados consistem em um conjunto de imagens faciais armazenadas no diretório `/datasets/faces/`, com rótulos de idades armazenados no arquivo `labels.csv`.
+## Abordagem
 
-2. **Exploração de Dados (EDA)**:
-   - Análise da distribuição etária e visualização de dados, com gráficos de barras mostrando as idades mais comuns no conjunto de dados.
-   - Verificações para garantir que os dados estão prontos para a modelagem.
+1. **Análise exploratória:** distribuição das idades e inspeção visual de amostras das imagens.
+2. **Preparação das imagens:** normalização dos pixels e aumento de dados com espelhamento horizontal no treino, usando `ImageDataGenerator`.
+3. **Modelagem:** transfer learning com a ResNet50 pré-treinada no ImageNet, seguida de `GlobalAveragePooling2D` e camada densa para a regressão da idade.
+4. **Treinamento:** otimizador Adam (taxa de aprendizado de 0,0001), função de perda MAE e 30 épocas em GPU.
 
-3. **Divisão dos Dados**:
-   - O conjunto de dados foi dividido em treinamento e validação usando o `ImageDataGenerator`, que também realiza augmentação de dados, como flips horizontais e normalização das imagens.
+## Resultados
 
-4. **Modelagem**:
-   - Implementação do modelo usando a rede **ResNet50** pré-treinada, com camadas adicionais de pooling e densas para prever a idade.
-   - O modelo foi compilado com a função de perda **mean_absolute_error** para medir a precisão das previsões.
-   
-5. **Treinamento do Modelo**:
-   - O modelo foi treinado por 30 épocas com um conjunto de treinamento e validação, utilizando a GPU para acelerar o processo.
+| Conjunto | MAE |
+|---|---|
+| Treino | 2,09 anos |
+| **Validação** | **5,79 anos** |
 
-6. **Resultados**:
-   - O modelo alcançou um erro absoluto médio (**MAE**) de 5.7889 ao prever as idades das imagens de teste.
+Na prática, um erro médio de cerca de 6 anos não permite que o modelo decida sozinho se uma pessoa é maior de idade. Ele funciona melhor como ferramenta de apoio: quando a idade estimada estiver abaixo de uma margem de segurança (por exemplo, 25 anos), o sistema sinaliza ao caixa que peça um documento.
 
-## Clone
+## Próximos passos
 
-Como Executar o Projeto Clone o repositório:
+- Reduzir a diferença entre o erro de treino e o de validação com mais aumento de dados, regularização e dropout
+- Avaliar o erro especificamente na faixa de 15 a 25 anos, a mais importante para este problema
+
+## Tecnologias
+
+Python · TensorFlow · Keras · ResNet50 · Pandas · Matplotlib · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_15
+pip install tensorflow pandas matplotlib jupyter
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_15 Abra o notebook:
-```
-
-
-
+O conjunto de imagens foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. O treinamento foi executado em GPU, e o registro completo das épocas está no notebook.
 
 ## 🔗 Contato
 
