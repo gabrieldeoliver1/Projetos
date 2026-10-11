@@ -17,7 +17,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 | [Previsão de Churn de Clientes](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16) | Identificar clientes de telecom com risco de cancelar | Pipeline, Regressão Logística, validação cruzada | AUC-ROC de 0,83 |
 | [Previsão de Demanda de Táxis](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_13) | Prever pedidos da próxima hora para alocar motoristas | Séries temporais, engenharia de features | RMSE de 47,99 (meta ≤ 48) |
 | [Detecção de Resenhas Negativas](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_14) | Filtrar automaticamente resenhas negativas | NLP, TF-IDF, Regressão Logística | F1 de 0,88 (meta 0,85) e ROC AUC de 0,95 |
-| [Estimativa de Idade por Imagem](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_15) | Apoiar a verificação de idade na venda de álcool | Visão computacional, ResNet50, transfer learning | MAE de 5,79 anos |
+| [Estimativa de Idade por Imagem](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_15) | Apoiar a verificação de idade na venda de álcool | Visão computacional, ResNet50, transfer learning | MAE de 5,96 anos no teste; política identifica 89% dos menores |
 
 ## 🤖 Machine Learning
 
