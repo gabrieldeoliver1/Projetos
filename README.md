@@ -24,7 +24,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 | Projeto | Problema de negócio | Técnicas | Resultado |
 |---|---|---|---|
 | [Recomendação de Plano de Telefonia](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_07) | Recomendar o plano certo para cada cliente | Classificação, GridSearchCV | 82% de acurácia (meta 75%) |
-| [Saída de Clientes de um Banco](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_08) | Prever quais clientes vão deixar o banco | Classificação, balanceamento de classes | F1 de 0,56 e AUC-ROC de 0,86 |
+| [Saída de Clientes de um Banco](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_08) | Prever quais clientes vão deixar o banco | Classificação, balanceamento de classes | F1 de 0,60 (meta 0,59) e AUC-ROC de 0,85 |
 | [Melhor Região para Poços de Petróleo](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_09) | Escolher a região com maior lucro e menor risco | Regressão, bootstrapping, análise de risco | Região recomendada com risco de 0,7% |
 | [Recuperação de Ouro na Indústria](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_10) | Prever a recuperação de ouro no processo | Regressão, sMAPE | sMAPE de 7,84% |
 | [ML e Proteção de Dados para Seguradora](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_11) | Proteger dados pessoais usados em modelos | kNN, álgebra linear, ofuscação de dados | kNN com F1 de 0,96; ofuscação sem perda de qualidade |
@@ -38,7 +38,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 | [Risco de Inadimplência](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_02) | Avaliar fatores de risco para o score de crédito | Análise exploratória, categorização | Taxas de 6,6% a 9,8% por perfil |
 | [Preço de Carros Usados](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_03) | Entender o que determina o preço de um veículo | Análise exploratória, tratamento de outliers | Idade, quilometragem e condição |
 | [Receita de Planos de Telefonia](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_04) | Definir qual plano gera mais receita | Estatística, testes de hipóteses | Ultimate: US$ 70 contra US$ 50 do Surf |
-| [Padrões de Sucesso de Videogames](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_05) | Planejar a campanha de jogos de 2017 | Análise exploratória, correlação, testes | Correlação de 0,39 entre crítica e vendas |
+| [Padrões de Sucesso de Videogames](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_05) | Planejar a campanha de jogos de 2017 | Análise exploratória, correlação, testes | Correlação de 0,41 entre crítica e vendas |
 | [Corridas de Táxi e Clima em Chicago](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_06) | Entender a demanda e o impacto do clima | Análise exploratória, teste de hipóteses | Clima altera a duração das corridas |
 
 ## 🛠️ Tecnologias
