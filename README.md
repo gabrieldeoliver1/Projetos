@@ -1,6 +1,6 @@
 # Portfólio de Ciência de Dados e Machine Learning
 
-Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 18 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio, com dados da formação em Ciência de Dados na TripleTen e dados públicos do IBGE.
+Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 19 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio, com dados da formação em Ciência de Dados na TripleTen e dados públicos do IBGE.
 
 Cada projeto tem um README próprio com o problema, os dados, a abordagem e os resultados.
 
@@ -10,6 +10,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 |---|---|---|---|
 | [Previsão de Vendas de Material de Construção](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_17) | Prever as vendas do varejo de material de construção para planejar compras e estoque | Séries temporais, SARIMA, validação por origem móvel | MAPE de 3,37%, 25% melhor que a linha de base |
 | [Modelo de Risco de Crédito](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_18) | Estimar a probabilidade de inadimplência de clientes de cartão e definir a política de crédito | WoE/IV, scorecard, LightGBM, SHAP | AUC de 0,78, Gini de 0,56 e KS de 0,43 |
+| [Teste A/B no Jogo Cookie Cats](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_19) | Decidir se mover o portão de progresso do nível 30 para o 40 melhora a retenção | Teste Z, bootstrap, bayesiano, poder estatístico, testes A/A | Retenção de 7 dias 0,82 p.p. menor no nível 40 (p = 0,0016) |
 | [Previsão de Churn de Clientes](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16) | Identificar clientes de telecom com risco de cancelar | Pipeline, Regressão Logística, validação cruzada | AUC-ROC de 0,82 |
 | [Previsão de Demanda de Táxis](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_13) | Prever pedidos da próxima hora para alocar motoristas | Séries temporais, engenharia de features | RMSE de 47,99 (meta ≤ 48) |
 | [Detecção de Resenhas Negativas](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_14) | Filtrar automaticamente resenhas negativas | NLP, TF-IDF, Regressão Logística | 88% de acurácia e ROC AUC de 0,95 |
