@@ -1,6 +1,6 @@
 # Portfólio de Ciência de Dados e Machine Learning
 
-Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 21 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio, com dados da formação em Ciência de Dados na TripleTen e dados públicos do IBGE.
+Projetos de **Gabriel de Oliveira**, Cientista de Dados e Analista de Dados Sênior. São 22 projetos que cobrem análise exploratória, estatística, testes de hipóteses, Machine Learning, séries temporais, NLP e visão computacional, sempre partindo de um problema de negócio, com dados da formação em Ciência de Dados na TripleTen e dados públicos, como os do IBGE e o texto da LGPD.
 
 Cada projeto tem um README próprio com o problema, os dados, a abordagem e os resultados.
 
@@ -13,6 +13,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 | [Teste A/B no Jogo Cookie Cats](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_19) | Decidir se mover o portão de progresso do nível 30 para o 40 melhora a retenção | Teste Z, bootstrap, bayesiano, poder estatístico, testes A/A | Retenção de 7 dias 0,82 p.p. menor no nível 40 (p = 0,0016) |
 | [Análise de E-commerce com SQL](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_20) | Entender vendas, logística, retenção e clientes de um e-commerce com 100 mil pedidos | SQL: JOINs, CTEs, funções de janela, coorte e RFM | 97% dos clientes compram uma vez; atrasos derrubam a nota para menos de 2 |
 | [Segmentação de Clientes com Clustering](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_21) | Descobrir perfis de compra para direcionar ações de marketing | K-means, teste de estabilidade, PCA, árvore de decisão | 5 personas; 15% dos clientes geram 40% da receita |
+| [Assistente da LGPD com RAG](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_22) | Responder dúvidas sobre a LGPD citando o artigo correto, sem inventar | RAG, BM25, LSA, LLM (Claude), avaliação de busca | Artigo certo entre os 4 primeiros em 80% das perguntas novas |
 | [Previsão de Churn de Clientes](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16) | Identificar clientes de telecom com risco de cancelar | Pipeline, Regressão Logística, validação cruzada | AUC-ROC de 0,82 |
 | [Previsão de Demanda de Táxis](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_13) | Prever pedidos da próxima hora para alocar motoristas | Séries temporais, engenharia de features | RMSE de 47,99 (meta ≤ 48) |
 | [Detecção de Resenhas Negativas](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_14) | Filtrar automaticamente resenhas negativas | NLP, TF-IDF, Regressão Logística | 88% de acurácia e ROC AUC de 0,95 |
