@@ -37,7 +37,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 | [Comportamento em Streaming de Música](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_01) | Comparar o comportamento de usuários de duas cidades | Pré-processamento, teste de hipóteses | 1 de 3 hipóteses confirmada |
 | [Risco de Inadimplência](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_02) | Avaliar fatores de risco para o score de crédito | Análise exploratória, categorização | Taxas de 6,6% a 9,8% por perfil |
 | [Preço de Carros Usados](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_03) | Entender o que determina o preço de um veículo | Análise exploratória, tratamento de outliers | Idade, quilometragem e condição |
-| [Receita de Planos de Telefonia](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_04) | Definir qual plano gera mais receita | Estatística, testes de hipóteses | Ultimate: US$ 70 contra US$ 50 do Surf |
+| [Receita de Planos de Telefonia](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_04) | Definir qual plano gera mais receita | Estatística, testes de hipóteses | Ultimate: US$ 72 contra US$ 61 do Surf |
 | [Padrões de Sucesso de Videogames](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_05) | Planejar a campanha de jogos de 2017 | Análise exploratória, correlação, testes | Correlação de 0,41 entre crítica e vendas |
 | [Corridas de Táxi e Clima em Chicago](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_06) | Entender a demanda e o impacto do clima | Análise exploratória, teste de hipóteses | Clima altera a duração das corridas |
 

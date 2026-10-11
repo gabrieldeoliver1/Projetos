@@ -27,6 +27,10 @@ A divisão de empréstimos de um banco quer saber se o estado civil e o número 
 
 Grupos com poucos clientes, como famílias com 4 ou 5 filhos, foram interpretados com cautela por causa do tamanho reduzido da amostra.
 
+## Correção desta versão
+
+Na versão anterior, as linhas duplicadas eram removidas antes de padronizar a escolaridade em letras minúsculas, então 17 duplicatas com grafias diferentes continuavam na base. Agora elas também são removidas, e o notebook foi executado novamente. As taxas de inadimplência não mudaram de forma relevante.
+
 ## Conclusão para o negócio
 
 Clientes sem filhos, casados, viúvos ou divorciados, de faixas de renda mais altas e que pedem crédito para imóveis apresentam menor risco. Esses fatores podem entrar como variáveis no modelo de pontuação de crédito do banco.
@@ -44,7 +48,7 @@ pip install pandas jupyter
 jupyter notebook
 ```
 
-O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`credit_scoring_eng.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook.
 
 ## 🔗 Contato
 
