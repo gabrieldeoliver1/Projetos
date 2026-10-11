@@ -1,79 +1,61 @@
 # Detecção Automática de Resenhas Negativas de Filmes
 
-## Descrição do Projeto
-Este projeto visa desenvolver um protótipo de modelo de aprendizado de máquina que detecta automaticamente resenhas negativas de filmes. Utilizando um conjunto de dados de avaliações de filmes do IMDB, o objetivo é classificar as resenhas como positivas ou negativas, alcançando uma pontuação F1 de, no mínimo, 0,85.
+> **Resultado:** **88% de acurácia** e **ROC AUC de 0,95** no conjunto de teste, com NLTK + TF-IDF + Regressão Logística.
 
-## Tecnologias Utilizadas
-- **Python**: Linguagem principal para análise e desenvolvimento do modelo.
-- **Jupyter Notebook**: Ambiente interativo para execução do código e visualização dos resultados.
+## Problema de negócio
 
-### Bibliotecas:
-- **Pandas**: Manipulação e análise de dados tabulares.
-- **NumPy**: Operações numéricas e manipulação de arrays.
-- **Matplotlib**: Visualização de dados por meio de gráficos.
-- **Seaborn**: Gráficos estatísticos avançados.
-- **Scikit-learn**: Implementação de algoritmos de aprendizado de máquina.
-- **NLTK**: Processamento de linguagem natural e remoção de stopwords.
-- **SpaCy**: Tokenização e lematização de texto.
-- **LightGBM**: Modelo de boosting eficiente para classificação.
-- **BERT**: Modelo de linguagem pré-treinado para extração de embeddings.
+A Film Junky Union, uma comunidade de entusiastas de filmes clássicos, está desenvolvendo um sistema para filtrar e categorizar resenhas. O objetivo é treinar um modelo que identifique automaticamente as resenhas negativas.
 
-## Funcionalidades Implementadas
+## Dados
 
-1. **Coleta e Carregamento dos Dados**:
-   - Dados de resenhas de filmes coletados do IMDB e armazenados em um arquivo `.tsv`.
+- 47.331 resenhas de filmes do IMDB, já rotuladas como positivas ou negativas
+- Classes balanceadas: 23.715 negativas e 23.616 positivas
+- Divisão original do conjunto: 23.796 resenhas para treino e 23.535 para teste
 
-2. **Limpeza e Pré-processamento dos Dados**:
-   - Normalização de textos, remoção de números e pontuações.
-   - Aplicação de técnicas de tokenização e lematização para processar o texto.
+## Abordagem
 
-3. **Análise Exploratória de Dados (EDA)**:
-   - Visualização de distribuições e padrões dos dados, incluindo gráficos de barras, dispersão e histogramas para análise de variáveis como ano de lançamento, gêneros e polaridade.
+1. **Análise exploratória:** distribuição de filmes e resenhas ao longo dos anos, número de resenhas por filme e equilíbrio entre as classes.
+2. **Pré-processamento do texto:** conversão para minúsculas e remoção de números e pontuação.
+3. **Vetorização:** TF-IDF com remoção de stopwords, com duas variações de tratamento do texto (NLTK e lematização com spaCy).
+4. **Modelagem:** comparação de quatro modelos, de um baseline constante até LightGBM.
+5. **Teste com resenhas próprias:** aplicação dos modelos em resenhas novas, escritas fora do conjunto de dados, para verificar o comportamento em textos reais.
 
-4. **Divisão dos Dados**:
-   - Separação dos dados em conjuntos de treinamento e teste para garantir uma avaliação imparcial dos modelos.
+## Resultados (conjunto de teste)
 
-5. **Modelagem Preditiva**:
-   - Teste de diferentes modelos de aprendizado de máquina, incluindo:
-     - **Dummy Classifier**: Modelo de base para comparação.
-     - **Regressão Logística**: Com vetorização TF-IDF para capturar a importância dos termos.
-     - **LightGBM**: Para um modelo de boosting rápido e eficiente.
-     - **BERT**: Modelo avançado para extração de embeddings semânticos dos textos.
+| Modelo | Acurácia | ROC AUC | APS |
+|---|---|---|---|
+| Baseline (constante) | 50% | – | – |
+| **NLTK + TF-IDF + Regressão Logística** | **88%** | **0,95** | **0,95** |
+| spaCy + TF-IDF + Regressão Logística | 88% | 0,95 | 0,95 |
+| spaCy + TF-IDF + LightGBM | 86% | 0,94 | 0,93 |
 
-6. **Avaliação dos Modelos**:
-   - Cada modelo foi avaliado com métricas como:
-     - **Acurácia**
-     - **F1 Score**
-     - **ROC AUC**
-     - **Average Precision Score (APS)**
+O modelo com NLTK e Regressão Logística foi o escolhido: obteve o melhor desempenho com o pré-processamento mais simples e rápido.
 
-7. **Validação do Modelo**:
-   - Validação cruzada para garantir a robustez e generalização dos modelos.
+**Nota sobre o F1:** a função de avaliação registrava o F1 no limiar 0, o que resultava em 0,67 para todos os modelos. O erro foi corrigido no notebook (detalhes na nota ao lado da função `evaluate_model`), e os valores de F1 serão atualizados na próxima execução. Acurácia, ROC AUC e APS não são afetados.
 
-8. **Geração de Relatórios**:
-   - Relatórios de avaliação dos modelos com visualizações das curvas ROC, precisão e recall, além de gráficos de importância das features.
+## Próximos passos
 
+- Executar novamente o notebook para registrar o F1 corrigido
+- Testar embeddings de modelos de linguagem pré-treinados (como BERT) em GPU e comparar com o TF-IDF
 
-## Clone
+## Tecnologias
 
-Como Executar o Projeto Clone o repositório:
+Python · Pandas · NumPy · Scikit-learn · NLTK · spaCy · LightGBM · Matplotlib · Seaborn · Jupyter Notebook
+
+## Como executar
 
 ```bash
-  Copiar git clone https://github.com/gabrieldeoliver1/Projetos.git Navegue até o diretório do projeto:
+git clone https://github.com/gabrieldeoliver1/Projetos.git
+cd Projetos/Projeto_14
+pip install pandas numpy scikit-learn nltk spacy lightgbm matplotlib seaborn jupyter
+python -m spacy download en_core_web_sm
+jupyter notebook
 ```
 
-```bash
-  Copiar cd Projeto_14 Abra o notebook:
-```
-
-
-
-
+O conjunto de dados (`imdb_reviews.tsv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
 
 ## 🔗 Contato
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrieldeoliver1/)
 
 Email: gabrieldeoliver1@gmail.com
-
-
