@@ -28,7 +28,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 | [Melhor Região para Poços de Petróleo](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_09) | Escolher a região com maior lucro e menor risco | Regressão, bootstrapping, análise de risco | Região recomendada com risco de 1,4% |
 | [Recuperação de Ouro na Indústria](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_10) | Prever a recuperação de ouro no processo | Regressão, sMAPE | sMAPE de 7,84% |
 | [ML e Proteção de Dados para Seguradora](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_11) | Proteger dados pessoais usados em modelos | kNN, álgebra linear, ofuscação de dados | kNN com F1 de 0,96; ofuscação sem perda de qualidade |
-| [Valor de Mercado de Carros Usados](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_12) | Estimar o preço de carros em um aplicativo | XGBoost, LightGBM, comparação de modelos | RMSE de 2.701 com LightGBM |
+| [Valor de Mercado de Carros Usados](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_12) | Estimar o preço de carros em um aplicativo | XGBoost, LightGBM, comparação de modelos | RMSE de 1.543 com XGBoost, 26 vezes mais rápido que o LightGBM |
 
 ## 📊 Análise de Dados e Estatística
 
