@@ -1,6 +1,6 @@
 # Machine Learning e Proteção de Dados para uma Seguradora
 
-> **Resultado:** ofuscação de dados pessoais de clientes com uma matriz invertível: os dados ficam ilegíveis após a transformação e são recuperados integralmente com a matriz inversa.
+> **Resultado:** classificador kNN com **F1 de até 0,96** para prever se um cliente receberá pagamento do seguro (contra 0,20 de um modelo aleatório) e ofuscação de dados pessoais com matriz invertível que **mantém exatamente a qualidade do modelo**.
 
 ## Problema de negócio
 
@@ -19,25 +19,20 @@ A seguradora Proteja Seu Amanhã quer avaliar como o aprendizado de máquina pod
 
 ## Resultados
 
-- **Ofuscação:** após a transformação, idade, gênero, salário e tamanho da família deixam de ser legíveis; com a matriz inversa, os valores originais são recuperados, com diferenças apenas na ordem de 10⁻¹² (arredondamento numérico).
-- **Regressão Linear própria:** RMSE de 0,23 na previsão do número de pagamentos.
-- **Classificação:** a melhor linha de base aleatória obteve F1 de 0,20.
+| Tarefa | Resultado |
+|---|---|
+| Classificação com kNN (dados escalados) | **F1 de até 0,96** (k = 1) |
+| Classificação com kNN (dados originais) | F1 de 0,58 ou menos |
+| Melhor linha de base aleatória | F1 de 0,20 |
+| Regressão Linear própria (número de pagamentos) | REQM de 0,34 e R² de 0,43 |
+| Regressão Linear com dados ofuscados | **REQM de 0,34 e R² de 0,43**, com as mesmas previsões |
 
-A ofuscação com matriz invertível é uma aplicação direta de princípios de proteção de dados, como os da LGPD: os dados podem ser compartilhados para modelagem sem expor as informações pessoais dos clientes.
+- **O escalonamento é decisivo para o kNN:** sem ele, a renda, com valores na casa das dezenas de milhares, domina a distância entre os clientes.
+- **A ofuscação protege sem custo:** idade, renda e família ficam ilegíveis, e o modelo treinado com os dados ofuscados faz exatamente as mesmas previsões. É uma aplicação direta de princípios de proteção de dados, como os da LGPD.
 
-## Observações técnicas
+## Correções desta versão
 
-Na revisão do notebook, identifiquei pontos na tarefa de regressão que estão documentados no próprio notebook:
-
-- A função de avaliação reporta a raiz quadrada do R² (o valor exibido de 0,66 corresponde a um R² de cerca de 0,44).
-- O modelo foi ajustado novamente no conjunto de teste antes da avaliação.
-- O teste da regressão com dados ofuscados usou os dados originais, então a comparação empírica entre dados originais e ofuscados ainda precisa ser executada. Pela teoria, as previsões da Regressão Linear não mudam quando as características são multiplicadas por uma matriz invertível, e é esse o resultado esperado na nova execução.
-
-## Próximos passos
-
-- Executar a regressão com os dados ofuscados e comparar as previsões e as métricas com as dos dados originais
-- Ajustar o modelo apenas no conjunto de treino e reportar o R² sem a raiz quadrada
-- Treinar o classificador kNN e compará-lo com as linhas de base aleatórias
+Uma revisão do notebook encontrou e corrigiu cinco problemas: o alvo da classificação passou a ser binário sem alterar o número de pagamentos usado na regressão; o classificador kNN, que faltava, foi treinado; o R² passou a ser exibido corretamente (antes aparecia a raiz quadrada); o modelo deixou de ser ajustado novamente no conjunto de teste; e o teste de ofuscação passou a usar de fato os dados ofuscados.
 
 ## Tecnologias
 
@@ -52,7 +47,7 @@ pip install pandas numpy scikit-learn seaborn jupyter
 jupyter notebook
 ```
 
-O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`insurance_us.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook.
 
 ## 🔗 Contato
 
