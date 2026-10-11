@@ -25,7 +25,7 @@ Cada projeto tem um README próprio com o problema, os dados, a abordagem e os r
 |---|---|---|---|
 | [Recomendação de Plano de Telefonia](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_07) | Recomendar o plano certo para cada cliente | Classificação, GridSearchCV | 82% de acurácia (meta 75%) |
 | [Saída de Clientes de um Banco](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_08) | Prever quais clientes vão deixar o banco | Classificação, balanceamento de classes | F1 de 0,60 (meta 0,59) e AUC-ROC de 0,85 |
-| [Melhor Região para Poços de Petróleo](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_09) | Escolher a região com maior lucro e menor risco | Regressão, bootstrapping, análise de risco | Região recomendada com risco de 0,7% |
+| [Melhor Região para Poços de Petróleo](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_09) | Escolher a região com maior lucro e menor risco | Regressão, bootstrapping, análise de risco | Região recomendada com risco de 1,4% |
 | [Recuperação de Ouro na Indústria](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_10) | Prever a recuperação de ouro no processo | Regressão, sMAPE | sMAPE de 7,84% |
 | [ML e Proteção de Dados para Seguradora](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_11) | Proteger dados pessoais usados em modelos | kNN, álgebra linear, ofuscação de dados | kNN com F1 de 0,96; ofuscação sem perda de qualidade |
 | [Valor de Mercado de Carros Usados](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_12) | Estimar o preço de carros em um aplicativo | XGBoost, LightGBM, comparação de modelos | RMSE de 2.701 com LightGBM |
