@@ -1,6 +1,6 @@
 # O Que Determina o Preço de um Carro Usado
 
-> **Resultado:** idade do veículo, quilometragem e condição são os fatores que mais influenciam o preço dos anúncios. A cor tem pouca influência.
+> **Resultado:** idade do veículo, quilometragem e condição são os fatores que mais influenciam o preço dos anúncios. As diferenças de preço entre cores acompanham, na verdade, a idade dos carros.
 
 ## Problema de negócio
 
@@ -23,7 +23,11 @@ Um site de classificados de veículos publica centenas de anúncios gratuitos po
 - **Quilometragem:** quanto menor a quilometragem, maior o preço.
 - **Condição:** veículos mais conservados são anunciados por valores maiores.
 - **Tipo e transmissão:** sedans e SUVs são os tipos mais anunciados. Nos SUVs, a transmissão manual apresentou preço médio maior; nos sedans, a automática.
-- **Cor:** os preços médios são parecidos entre as cores, indicando pouca influência no preço.
+- **Cor:** carros pretos e brancos têm preços maiores, e verdes e marrons, menores, mas os verdes e marrons são, em mediana, os mais velhos (12 e 10 anos, contra 7). A diferença vem da idade, e não da cor em si.
+
+## Correção desta versão
+
+Na versão anterior, os preços abaixo de 200 dólares eram substituídos por valores tirados da tabela de medianas usando o próprio preço como posição, e não o modelo, o ano e a condição do carro. A quilometragem que continuava ausente era preenchida com 0, e alguns preenchimentos podiam não ter efeito em versões novas do pandas. Tudo foi corrigido e o notebook, executado novamente. As conclusões se mantiveram, com uma leitura mais precisa sobre a cor.
 
 ## Tecnologias
 
@@ -38,7 +42,7 @@ pip install pandas matplotlib seaborn jupyter
 jupyter notebook
 ```
 
-O conjunto de dados foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`vehicles_us.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook.
 
 ## 🔗 Contato
 
