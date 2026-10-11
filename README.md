@@ -124,39 +124,43 @@ Este repositório contém uma coleção dos projetos de aprendizado de máquina 
 ---
 
 ### 13. [**Previsão da Quantidade de Pedidos de Táxi para a Próxima Hora**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_13)
-- **Descrição**: Preve a quantidade de pedidos de táxi para a próxima hora, utilizando dados históricos e variáveis como hora do dia, dia da semana e condições climáticas.
-- **Tecnologias**: Python, Pandas, Matplotlib, Seaborn, NumPy, Scikit-learn.
+- **Descrição**: Prevê a quantidade de pedidos de táxi nos aeroportos para a próxima hora, a partir do histórico de pedidos, para ajudar a empresa a atrair motoristas nos horários de pico.
+- **Tecnologias**: Python, Pandas, NumPy, Scikit-learn, Statsmodels, Matplotlib.
 - **Destaques**:
-  - Implementação de modelos de Regressão Linear e Árvores de Decisão.
-  - Avaliação do modelo com RMSE e R².
+  - Decomposição da série temporal e criação de features de calendário, defasagens e média móvel.
+  - Comparação entre Regressão Linear e Random Forest com ajuste de hiperparâmetros.
+  - **Resultado:** RMSE de 47,99 no teste com Regressão Linear, dentro da meta de 48.
 
 ---
 
 ### 14. [**Detecção Automática de Resenhas Negativas de Filmes**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_14)
-- **Descrição**: Desenvolve um modelo de machine learning para classificar resenhas de filmes como positivas ou negativas, utilizando dados do IMDB.
-- **Tecnologias**: Python, Pandas, Matplotlib, Seaborn, NumPy, Scikit-learn, LightGBM, BERT.
+- **Descrição**: Classifica resenhas de filmes do IMDB como positivas ou negativas, para filtrar automaticamente as resenhas negativas.
+- **Tecnologias**: Python, Pandas, NumPy, Scikit-learn, NLTK, spaCy, LightGBM.
 - **Destaques**:
-  - Implementação de modelos de Regressão Logística, LightGBM e BERT.
-  - Avaliação com métricas de Acurácia, F1 Score e ROC AUC.
+  - Pré-processamento de texto e vetorização TF-IDF com NLTK e spaCy.
+  - Comparação entre Regressão Logística e LightGBM a partir de um baseline.
+  - **Resultado:** 88% de acurácia e ROC AUC de 0,95 no teste.
 
 ---
 
-### 15. [**Garantindo que Não Vendam Álcool para Menores de Idade**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_15)
-- **Descrição**: Utiliza deep learning para estimar a idade de uma pessoa com base em imagens faciais e garantir que álcool não seja vendido para menores de idade.
-- **Tecnologias**: Python, TensorFlow, Keras, Matplotlib, Pandas.
+### 15. [**Estimativa de Idade por Imagem para Evitar a Venda de Álcool a Menores**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_15)
+- **Descrição**: Estima a idade de uma pessoa a partir de uma foto do rosto, como apoio à verificação de idade na venda de bebidas alcoólicas.
+- **Tecnologias**: Python, TensorFlow, Keras, Pandas, Matplotlib.
 - **Destaques**:
-  - Implementação do modelo ResNet50 com camadas adicionais de pooling e densas.
-  - Avaliação com erro absoluto médio (MAE) de 5.7889.
+  - Transfer learning com a ResNet50 pré-treinada e aumento de dados.
+  - Treinamento em GPU com otimizador Adam e função de perda MAE.
+  - **Resultado:** erro absoluto médio (MAE) de 5,79 anos na validação.
 
 ---
 
-### 16. [**Desenvolvendo um Modelo para Predizer a Rotatividade de Clientes**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16)
-- **Descrição**: Este projeto desenvolve um modelo preditivo de machine learning para a operadora de comunicações Interconnect, com o objetivo de prever a rotatividade de clientes. Utiliza dados de contratos e informações pessoais para identificar usuários propensos a trocar de operadora.
-- **Tecnologias**: Python, Pandas, NumPy, Matplotlib, Scikit-learn.
+### 16. [**Previsão de Churn de Clientes – Interconnect**](https://github.com/gabrieldeoliver1/Projetos/tree/main/Projeto_16)
+- **Descrição**: Prevê quais clientes de uma operadora de telecomunicações estão propensos a cancelar o contrato, para orientar ações de retenção do marketing.
+- **Tecnologias**: Python, Pandas, NumPy, Scikit-learn, Matplotlib.
 - **Destaques**:
-  - Implementação de um pipeline com regressão logística para classificação.
-  - Uso de validação cruzada e métricas de desempenho, com foco na pontuação AUROC.
-  - O modelo alcançou uma pontuação AUROC de 0.82, demonstrando boa capacidade de discriminação entre clientes rotativos e não rotativos. 
+  - Integração de quatro tabelas de clientes e prevenção de vazamento de dados.
+  - Pipeline completo com `ColumnTransformer`, Regressão Logística e validação cruzada.
+  - **Resultado:** AUC-ROC de 0,82 no teste (0,83 na validação cruzada).
+
 ---
 
 ## Como Executar os Projetos
