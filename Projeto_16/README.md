@@ -10,7 +10,7 @@ A operadora de telecomunicações Interconnect quer prever quais clientes estão
 
 - 7.043 clientes
 - Quatro tabelas unidas pelo `customerID`: contratos, serviços de internet, dados pessoais e serviços de telefonia
-- Variável-alvo derivada da data de encerramento do contrato
+- Variável-alvo derivada da data de encerramento do contrato: no notebook, o valor 1 indica clientes que permaneceram, e a probabilidade de churn é obtida como `1 - p` (o AUC-ROC não muda com essa convenção)
 
 ## Abordagem
 
@@ -30,6 +30,7 @@ Os resultados próximos entre validação cruzada e teste indicam que o modelo g
 
 ## Próximos passos
 
+- Redefinir o alvo como 1 para clientes que cancelaram, seguindo a convenção usual de problemas de churn
 - Testar modelos de boosting (LightGBM, CatBoost) e comparar com a Regressão Logística
 - Criar uma feature de tempo de contrato a partir da data de início e de uma data de referência, sem usar informação do encerramento
 - Definir um limiar de decisão com base no custo das ações de retenção
