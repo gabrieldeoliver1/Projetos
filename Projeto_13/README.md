@@ -1,6 +1,6 @@
 # Previsão da Quantidade de Pedidos de Táxi para a Próxima Hora
 
-> **Resultado:** RMSE de **47,99** no conjunto de teste com Regressão Linear, dentro da meta do projeto (RMSE ≤ 48).
+> **Resultado:** RMSE de **44,58** no conjunto de teste com Random Forest, bem dentro da meta do projeto (RMSE ≤ 48), usando validação cruzada temporal e a hora do dia como variável.
 
 ## Problema de negócio
 
@@ -15,24 +15,27 @@ A Sweet Lift Taxi coletou o histórico de pedidos de táxi nos aeroportos e prec
 ## Abordagem
 
 1. **Análise exploratória:** visualização da série, média móvel e decomposição sazonal, que mostraram uma tendência de crescimento ao longo dos meses e uma sazonalidade diária bem definida.
-2. **Engenharia de features:** variáveis de calendário (ano, mês, dia e dia da semana), defasagens dos últimos 6 períodos (lags) e média móvel das 10 horas anteriores.
+2. **Engenharia de features:** variáveis de calendário (mês, dia, dia da semana e **hora do dia**), defasagens dos últimos 6 períodos (lags) e média móvel das 10 horas anteriores.
 3. **Divisão temporal:** 80% para treino e 20% para teste, sem embaralhar os dados, preservando a ordem cronológica.
-4. **Modelagem:** comparação entre Regressão Linear e Random Forest, com ajuste de hiperparâmetros via `GridSearchCV`. O conjunto de teste não participou do ajuste.
+4. **Modelagem:** comparação entre Regressão Linear e Random Forest, com ajuste de hiperparâmetros via `GridSearchCV` e **validação cruzada temporal** (`TimeSeriesSplit`). O conjunto de teste não participou do ajuste.
 
 ## Resultados
 
 | Modelo | RMSE treino | RMSE teste |
 |---|---|---|
-| **Regressão Linear** | 29,05 | **47,99** |
-| Random Forest | 19,38 | 54,05 |
+| **Random Forest** | 9,26 | **44,58** |
+| Regressão Linear | 29,02 | 47,16 |
 
-A Regressão Linear foi o modelo escolhido. O Random Forest teve erro menor no treino, mas pior no teste, um sinal de overfitting.
+O Random Forest foi o modelo escolhido. Ele aproveita bem a hora do dia, cujo efeito não é linear ao longo das 24 horas, mas mostra sinais de overfitting (erro bem menor no treino).
+
+## Correções desta versão
+
+A versão anterior usava validação cruzada comum, que em séries temporais pode usar dados do futuro no ajuste, e não tinha a hora do dia como variável. Com as duas correções, o RMSE no teste caiu de 47,99 (Regressão Linear) para 44,58 (Random Forest).
 
 ## Próximos passos
 
-- Usar `TimeSeriesSplit` na validação cruzada, para respeitar a ordem temporal também durante o ajuste de hiperparâmetros
-- Incluir a hora do dia como feature, aproveitando a sazonalidade diária identificada na análise exploratória
-- Testar modelos de boosting (LightGBM, CatBoost) e modelos próprios de séries temporais
+- Limitar a profundidade do Random Forest para reduzir o overfitting
+- Testar modelos de boosting, como LightGBM
 
 ## Tecnologias
 
@@ -47,7 +50,7 @@ pip install pandas numpy scikit-learn statsmodels matplotlib jupyter
 jupyter notebook
 ```
 
-O conjunto de dados (`taxi.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, ajuste o caminho do arquivo na célula de leitura dos dados.
+O conjunto de dados (`taxi.csv`) foi fornecido pela TripleTen durante o bootcamp e não está incluído no repositório. Para reproduzir o projeto, coloque o arquivo na mesma pasta do notebook.
 
 ## 🔗 Contato
 
