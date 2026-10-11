@@ -30,6 +30,7 @@ Na prática, um erro médio de cerca de 6 anos não permite que o modelo decida 
 
 ## Próximos passos
 
+- Ajustar a camada de saída para `Dense(1)`, a forma mais adequada para prever um único valor, e validar o resultado em nova execução
 - Reduzir a diferença entre o erro de treino e o de validação com mais aumento de dados, regularização e dropout
 - Avaliar o erro especificamente na faixa de 15 a 25 anos, a mais importante para este problema
 
