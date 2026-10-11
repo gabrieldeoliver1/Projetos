@@ -23,7 +23,7 @@ Empresas e órgãos públicos têm dúvidas constantes sobre a LGPD, e os LLMs r
 4. **Busca:** TF-IDF, BM25, LSA (análise semântica latente) e busca híbrida com Reciprocal Rank Fusion.
 5. **Avaliação da busca** com Recall@k e MRR.
 6. **Glossário de termos** do dia a dia para os termos da lei, avaliado também em **10 perguntas novas**, escritas depois de criar o glossário.
-7. **Geração** com o Claude, com instruções para responder só com base nos trechos, citar os artigos e recusar perguntas fora do escopo.
+7. **Geração** com um LLM (Gemini ou Claude), com instruções para responder só com base nos trechos, citar os artigos e recusar perguntas fora do escopo.
 8. **Avaliação automática das respostas:** citação do artigo correto e recusa em 5 perguntas fora do escopo da LGPD.
 
 ## Resultados da busca
@@ -43,19 +43,19 @@ Empresas e órgãos públicos têm dúvidas constantes sobre a LGPD, e os LLMs r
 
 ## Tecnologias
 
-Python · Scikit-learn (TF-IDF, LSA) · rank-bm25 · API do Claude (Anthropic) · Pandas · Matplotlib · Jupyter Notebook
+Python · Scikit-learn (TF-IDF, LSA) · rank-bm25 · APIs do Gemini (Google) e do Claude (Anthropic) · Pandas · Matplotlib · Jupyter Notebook
 
 ## Como executar
 
-**No Google Colab:** clique no botão "Abrir no Colab" acima. A busca e a avaliação da busca rodam sem nenhuma configuração. Para gerar as respostas com o LLM (Etapas 6 e 7), salve uma chave de API da Anthropic no ícone de chave (🔑 "Secrets") da barra lateral com o nome `ANTHROPIC_API_KEY`.
+**No Google Colab:** clique no botão "Abrir no Colab" acima. A busca e a avaliação da busca rodam sem nenhuma configuração. Para gerar as respostas com o LLM (Etapas 6 e 7), salve uma chave de API no ícone de chave (🔑 "Secrets") da barra lateral: `GEMINI_API_KEY` para o Gemini, que tem plano gratuito, ou `ANTHROPIC_API_KEY` para o Claude.
 
 **Localmente:**
 
 ```bash
 git clone https://github.com/gabrieldeoliver1/Projetos.git
 cd Projetos/Projeto_22
-pip install pandas numpy matplotlib scikit-learn rank-bm25 anthropic jupyter
-export ANTHROPIC_API_KEY="sua-chave"   # opcional, para gerar as respostas
+pip install pandas numpy matplotlib scikit-learn rank-bm25 anthropic google-genai jupyter
+export GEMINI_API_KEY="sua-chave"   # opcional, para gerar as respostas (ou ANTHROPIC_API_KEY)
 jupyter notebook
 ```
 
