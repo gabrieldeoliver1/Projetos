@@ -1,6 +1,6 @@
 # Assistente de Perguntas sobre a LGPD com RAG e IA Generativa
 
-> **Resultado:** assistente que busca os artigos relevantes da LGPD e usa um LLM para responder **citando a fonte**. Cada etapa é avaliada com perguntas de resposta conhecida: com um glossário que traduz palavras do dia a dia para os termos da lei, o artigo correto passou a estar entre os 4 trechos enviados ao LLM em **80% das perguntas novas, contra 50%** sem ele.
+> **Resultado:** assistente que busca os artigos relevantes da LGPD e usa um LLM para responder **citando a fonte**. Com um glossário de termos, o artigo correto passou a estar entre os 4 trechos enviados ao LLM em **80% das perguntas novas, contra 50%**. Na geração, com um modelo de código aberto rodando de graça na GPU do Colab, o assistente **recusou 100% das perguntas fora da LGPD**, sem inventar respostas.
 
 [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gabrieldeoliver1/Projetos/blob/main/Projeto_22/22.assistente_lgpd_com_rag.ipynb)
 
@@ -35,6 +35,18 @@ Empresas e órgãos públicos têm dúvidas constantes sobre a LGPD, e os LLMs r
 | Estrutural + híbrida | 10 novas | 50% | 0,38 |
 | Estrutural + híbrida + **glossário** | 10 novas | **80%** | **0,79** |
 
+## Resultados da geração
+
+Com o modelo de código aberto **Qwen2.5-3B-Instruct**, rodando na GPU gratuita do Colab:
+
+| Avaliação | Resultado |
+|---|---|
+| Recusas corretas em perguntas fora da LGPD | **100%** (5 de 5) |
+| Respostas que citam um artigo correto | 63% |
+| ... quando a busca encontrou o artigo certo | 70% |
+
+O assistente nunca inventou respostas para perguntas fora da lei, o comportamento mais importante em um tema jurídico. O gargalo está no modelo pequeno, que às vezes responde sem citar o artigo no formato pedido: a busca já entrega o artigo certo em 90% dos casos. A próxima etapa é comparar com modelos maiores via API.
+
 ## Principais descobertas
 
 - **Dividir a lei por artigo é o que permite citar a fonte.** As janelas fixas, comuns em tutoriais, encontram o assunto com um pouco mais de frequência, mas cortam frases e misturam artigos.
@@ -61,6 +73,7 @@ jupyter notebook
 
 ## Próximos passos
 
+- Comparar a geração com modelos maiores via API, como Claude e GPT
 - Testar embeddings multilíngues combinados com o BM25
 - Incluir os regulamentos da ANPD
 - Criar uma interface de chat
